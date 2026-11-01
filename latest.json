@@ -1,5 +1,17 @@
 {
   "version": "0.2.0",
   "notes_url": "https://github.com/gujo-io/agent-liche-docs/blob/main/CHANGELOG.md",
-  "download_url": "https://asset.gujo.io/products/287?lang=ko"
+  "download_url": "https://asset.gujo.io/products/287?lang=ko",
+  "files": {
+    "windows-x64": {
+      "name": "RELEASE_FILL_WINDOWS_ZIP_NAME",
+      "size_bytes": "RELEASE_FILL_WINDOWS_ZIP_BYTES",
+      "sha256": "RELEASE_FILL_WINDOWS_ZIP_SHA256"
+    },
+    "macos-arm64": {
+      "name": "RELEASE_FILL_MAC_ZIP_NAME",
+      "size_bytes": "RELEASE_FILL_MAC_ZIP_BYTES",
+      "sha256": "RELEASE_FILL_MAC_ZIP_SHA256"
+    }
+  }
 }
