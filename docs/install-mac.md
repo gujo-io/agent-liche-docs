@@ -29,7 +29,7 @@ Gujo 스토어에 로그인한 뒤 라이브러리에서 macOS용 파일을 내�
 2. 인터넷에서 내려받은 앱이라는 확인 창이 뜨면 **열기**를 눌러요.
 3. 화면 전체를 쓰는 첫 실행 안내가 열려요. [처음 실행](first-run.md)을 따라 에이전트를 연결해요.
 
-macOS 판은 Apple의 Developer ID로 서명하고 Apple의 공증(notarization)을 받아 배포할 예정이에요 (예정). 그래서 보통은 위의 확인 창 하나만 떠요.
+macOS 판은 Apple의 Developer ID로 서명하고 Apple의 공증(notarization)을 받아 배포할 예정이에요. 그래서 보통은 위의 확인 창 하나만 떠요.
 
 ### "확인할 수 없습니다"라는 창이 뜰 때
 
