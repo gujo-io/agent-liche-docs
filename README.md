@@ -55,6 +55,7 @@ Agent Liche(리체)는 바탕 화면에 사는 AI 비서예요. 언리얼 엔진
 
 ## 약관과 정책
 
+- [Agent Liche 최종 사용자 사용권 계약 (EULA)](legal/eula.md)
 - [이용약관](https://account.gujo.io/ko/terms)
 - [환불 정책](https://account.gujo.io/ko/refund)
 - [개인정보 처리방침](https://account.gujo.io/ko/privacy)
