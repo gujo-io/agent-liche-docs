@@ -1,6 +1,6 @@
 # 에이전트 연결
 
-[안내서 처음으로](../README.md)
+[안내서 처음으로](../README.md) · [English](../en/docs/agents.md)
 
 리체는 답을 직접 만들지 않아요. **여러분이 연결한 AI 에이전트가 답을 만들고**, 리체는 대화를 보여 주며 표정과 몸짓으로 반응해요. 에이전트는 별도로 설치해야 해요.
 
@@ -10,20 +10,21 @@
 - **ACP로 연결해요.** ACP(Agent Client Protocol)는 에이전트와 대화하는 공개 방식이에요. Claude Code는 `claude-agent-acp`, Codex는 `codex-acp` 어댑터로 연결해요.
 - **대화는 에이전트에게 가요.** 에이전트는 답을 만들려고 자기 AI 서비스로 내용을 보낼 수 있어요. [개인정보와 데이터](privacy.md)를 읽어 주세요.
 - **로그인과 첫 설정을 먼저 마쳐요.** 에이전트의 공식 안내에 따라 로그인·모델 설정을 끝내야 리체가 답을 받을 수 있어요.
-- Windows용 리체에는 Windows에 설치한 에이전트를 연결해요. WSL 안에만 설치한 에이전트를 Windows 실행 파일처럼 고르지는 마세요. WSL 연결은 별도 확인이 필요해요 (확인 중).
+- Windows용 리체에는 Windows에 설치한 에이전트를 연결해요. **WSL 안에만 설치한 에이전트는 지원하지 않아요.** Windows 실행 파일로 설치한 에이전트를 골라요.
+- 모델과 생각 깊이는 모드마다 따로 골라요. **리체 설정 › 모드 › 일상(또는 업무) › 대화**에서 바꿔요 ([리체 설정](settings.md#모드별-모델과-생각-깊이)).
 
 ## 연결할 수 있는 에이전트
 
 | 에이전트 | 리체가 실행하는 ACP 명령 | macOS | Windows |
 | --- | --- | --- | --- |
-| Claude Code | `claude-agent-acp` | 첫 실행 안내에서 선택 (확인 중: 실제 대화) | 연결 설정의 **다른 에이전트**에서 선택 (확인 중: 실제 대화) |
-| Codex | `codex-acp` | 첫 실행 안내에서 선택 (확인 중: 실제 대화) | 연결 설정의 **다른 에이전트**에서 선택 (확인 중: 실제 대화) |
-| OpenClaw | `openclaw acp` | 첫 실행 안내에서 선택 (확인 중: 0.2.0 실제 대화) | 연결 설정의 **다른 에이전트**에서 선택 (확인 중: 실제 대화) |
-| Hermes | `hermes-acp` | 첫 실행 안내에서 선택 (확인 중: 실제 대화) | 연결 설정의 Hermes 카드 (확인 중: 0.2.0 실제 대화) |
-| 그 밖의 ACP 에이전트 | 해당 프로젝트의 ACP 실행 명령 | **에이전트로 연결하기** 또는 명령으로 연결 (확인 중) | 명령으로 연결 (확인 중) |
-| 리체 브릿지 | 별도 프로그램 | 목록의 **리체 브릿지**. 판매 패키지 포함 여부는 확인 중이에요 (확인 중) | 연결 설정의 **리체 브릿지**. 판매 패키지 포함 여부는 확인 중이에요 (확인 중) |
+| Claude Code | `claude-agent-acp` | 첫 실행 안내의 **이 컴퓨터에서 찾은 연결**에서 선택 | **연결 설정**의 **다른 에이전트**에서 선택 |
+| Codex | `codex-acp` | 첫 실행 안내의 **이 컴퓨터에서 찾은 연결**에서 선택 | **연결 설정**의 **다른 에이전트**에서 선택 |
+| OpenClaw | `openclaw acp` | 첫 실행 안내의 **이 컴퓨터에서 찾은 연결**에서 선택 | **연결 설정**의 **다른 에이전트**에서 선택 |
+| Hermes | `hermes-acp` | 첫 실행 안내의 **이 컴퓨터에서 찾은 연결**에서 선택 | **연결 설정**의 Hermes 카드 |
+| 그 밖의 ACP 에이전트 | 해당 프로젝트의 ACP 실행 명령 | **에이전트로 연결하기** | `LicheInput.exe --connect` ([아래](#windows에서-다른-에이전트-연결하기)) |
+| 리체 브릿지 | 별도 프로그램 | 판매 패키지에 들어 있지 않아요. 따로 설치했을 때만 목록에 보여요 | 판매 패키지에 들어 있지 않아요. 따로 설치했을 때만 카드가 보여요 |
 
-**0.2.0 최종 패키지와 각 에이전트의 처음부터 끝까지 실제 대화 시험은 아직 마치지 않았어요 (확인 중).** 공식 프로젝트가 해당 운영체제를 지원하는 것과 리체에서 실제로 연결되는 것은 별개예요.
+리체는 어느 에이전트든 같은 방식(ACP)으로 실행하고 대화해요. 다만 각 에이전트의 설치, 로그인, 모델 사용 조건은 그 프로젝트가 정하고 바뀔 수 있어요. 공식 프로젝트가 해당 운영체제를 지원하는지 먼저 확인해요.
 
 ## 에이전트 설치하기
 
@@ -87,7 +88,7 @@ npm install -g openclaw@latest
 2. [공식 ACP 안내](https://hermes-agent.nousresearch.com/docs/user-guide/features/acp)에 따라 **ACP 추가 구성요소(`acp` extra)**도 준비해요. 기본 설치만으로 ACP가 준비됐다고 가정하지 마세요. 공식 ACP 문서의 소스 폴더 예시는 macOS/Linux용이므로 Windows에 그대로 붙여 넣지 마세요.
 3. 로그인·모델 설정을 끝낸 뒤 리체에서 골라요. 리체는 `hermes-acp`로 연결해요. 공식 프로젝트는 `hermes acp`도 지원해요.
 
-Windows용 ACP 추가 설치 절차와 리체의 자동 검색 조합은 아직 확인 중이에요 (확인 중). [공식 소스의 실행 명령·추가 구성요소](https://github.com/NousResearch/hermes-agent/blob/main/pyproject.toml)도 참고할 수 있어요.
+이 안내서는 Windows에서 Hermes의 ACP 추가 구성요소를 설치하는 명령을 따로 적지 않아요. Windows에서는 [Hermes 공식 ACP 안내](https://hermes-agent.nousresearch.com/docs/user-guide/features/acp)의 Windows 절차를 따라요. [공식 소스의 실행 명령·추가 구성요소](https://github.com/NousResearch/hermes-agent/blob/main/pyproject.toml)도 참고할 수 있어요.
 
 ### 리체 안의 설치 도우미
 
@@ -97,7 +98,7 @@ Windows용 ACP 추가 설치 절차와 리체의 자동 검색 조합은 아직 
 - **Windows:** **연결 설정 › 다른 에이전트**의 **설치 방법 보기**를 눌러요. Hermes는 Hermes 카드에서 안내를 열어요. 설치 후 **다시 확인**으로 찾아요.
 - 설치됐다고 나오면 그 에이전트의 **연결하기**를 눌러요.
 
-도우미는 다음 순서를 안내해요. 아래 설치 명령은 실제 설치 실행 시험 전이에요. 공식 안내의 최신 요구사항도 함께 확인해요.
+도우미는 다음 순서를 안내해요. 설치 명령은 각 공식 프로젝트의 것이고 바뀔 수 있으니, 공식 안내의 최신 요구사항도 함께 확인해요.
 
 | 준비할 것 | macOS | Windows PowerShell |
 | --- | --- | --- |
@@ -107,7 +108,7 @@ Windows용 ACP 추가 설치 절차와 리체의 자동 검색 조합은 아직 
 | Codex ACP | `npm install -g @agentclientprotocol/codex-acp` | 왼쪽과 같아요 |
 | Hermes 기본 설치 | `curl -fsSL https://hermes-agent.nousresearch.com/install.sh \| bash` | `irm https://hermes-agent.nousresearch.com/install.ps1 \| iex` |
 
-Hermes는 기본 설치 뒤 ACP 추가 기능도 필요해요. macOS의 기본 소스 설치에서는 아래 두 명령을 차례로 실행해요. 설치 위치나 Python 환경을 바꿨다면 그대로 복사하지 말고 [공식 ACP 안내](https://hermes-agent.nousresearch.com/docs/user-guide/features/acp)를 따라요. Windows는 같은 공식 안내에서 운영체제에 맞는 절차를 확인해요 (확인 중: Windows 추가 설치).
+Hermes는 기본 설치 뒤 ACP 추가 기능도 필요해요. macOS의 기본 소스 설치에서는 아래 두 명령을 차례로 실행해요. 설치 위치나 Python 환경을 바꿨다면 그대로 복사하지 말고 [공식 ACP 안내](https://hermes-agent.nousresearch.com/docs/user-guide/features/acp)를 따라요. Windows는 같은 공식 안내에서 Windows용 절차를 따라요.
 
 ```sh
 cd ~/.hermes/hermes-agent
@@ -129,7 +130,7 @@ python -c "import pm; pm.sync_venv(['acp'], explicit=True)"
 
 ### Windows에서 다른 에이전트 연결하기
 
-목록에 없는 ACP 에이전트는 대화창 프로그램 `LicheInput.exe`에 `--connect`를 주어 연결할 수 있어요. 이 경로의 실제 연결은 확인 중이에요 (확인 중).
+목록에 없는 ACP 에이전트는 대화창 프로그램 `LicheInput.exe`에 `--connect`를 주어 연결할 수 있어요. 리체는 그 명령을 저장해 두고 다음부터 같은 에이전트로 연결해요.
 
 1. 리체를 켜 둬요.
 2. 패키지의 `AgentLiche\Binaries\Win64`에서 `LicheInput.exe` 경로를 확인해요.
@@ -145,6 +146,7 @@ python -c "import pm; pm.sync_venv(['acp'], explicit=True)"
 
 - **대화:** 일상·업무 대화를 따로 이어 가요. 모드별 작업 폴더는 macOS `~/Liche/<모드>`, Windows `문서\Liche\<모드>`예요.
 - **승인 요청:** 도구 사용 전에 **승인** 또는 **거절**을 골라요. 리체는 자동 승인하지 않아요. **■ 중지**나 연결 종료 시 남은 요청은 취소돼요.
+- **오래 걸리는 도구 작업:** 에이전트가 도구를 쓰는 동안에는 2분 "응답이 없어요" 제한이 없고, 아무 소식 없이 30분이 지날 때만 기다리기를 멈춰요. 대화창에는 "작업 중이에요 · 경과 시간"이 보여요 ([답을 기다리는 시간](first-run.md#답을-기다리는-시간)).
 - **리체의 MCP 서버:** 표정·동작과 짧은 말풍선을 바꿀 수 있어요. 이 서버로 대화 기록·설정·키는 읽지 못해요.
 - **모델과 생각 깊이:** **리체 설정 › 모드 › 일상(또는 업무) › 대화**에서 각각 골라요. **에이전트 기본값**이면 에이전트가 정한 값을 써요. 에이전트가 선택 기능을 제공하지 않으면 고를 수 없어요.
 - **첨부:** 연결이 지원할 때만 첨부 단추가 보여요. 에이전트마다 지원 기능은 달라요.
