@@ -10,7 +10,7 @@
 - 그 기간이 끝나도, 기간 안에 나온 버전은 계속 다시 내려받을 수 있어요.
 - macOS 판이 나오면 같은 상품에 함께 들어가요. 업데이트 기간 안이면 추가 요금 없이 받을 수 있어요.
 
-정확한 조건은 [스토어 상품 페이지](https://asset.gujo.io/products/287?lang=ko)와 [이용약관](https://account.gujo.io/ko/terms)을 따라요.
+정확한 조건은 [스토어 상품 페이지](https://asset.gujo.io/products/287?lang=ko), [최종 사용자 사용권 계약 (EULA)](../legal/eula.md), [Gujo 이용약관](https://account.gujo.io/ko/terms)을 따라요.
 
 ## 지금 쓰는 버전 확인하기
 
