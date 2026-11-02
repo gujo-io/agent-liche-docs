@@ -6,9 +6,11 @@
 
 - **Only Apple Silicon (M1 or later) Macs are supported. Intel Macs are not supported.**
 - macOS 14 or later. Pre-release testing used macOS 26 and 27.
-- No minimum CPU or memory requirements are specified. On laptops, we recommend **절약** (Power saving) under **리체 설정 › 성능** (Liche Settings › Performance).
-- At least 1.5 GB of free space for both the downloaded zip and the extracted app.
+- 16 GB of memory is recommended; 8 GB is the minimum. On laptops, we recommend **절약** (Power saving) under **리체 설정 › 성능** (Liche Settings › Performance).
+- Storage: about 0.5 GB for the app (about 0.7 GB free while the downloaded zip is still there).
 - An AI agent installed and signed in separately. See [Connecting an agent](agents.md).
+
+On a Retina screen, the card and the Liche Settings window are drawn sharply at the screen's own pixels. Liche's 3D image follows the performance profile ([Performance](settings.md#performance)).
 
 ## 1. Downloading
 
@@ -18,11 +20,9 @@ If you extract it with another archive app or the `unzip` command, a `__MACOSX` 
 
 ### Checking your download (optional)
 
-| File | Size (bytes) | SHA-256 |
-| --- | --- | --- |
-| `Agent-Liche-0.2.0-mac.zip` | `516,489,609` | `bd71fad86976b74c50951f5c87a7052f6df142d6e131661d8d77ec3c925f5ac1` |
+Each file's name, size, and SHA-256 value are listed under **Version history** on the [store product page](https://app.gujo.io/products/287?lang=en). The store shows them from the files it publishes, so this guide does not repeat them.
 
-Run this command in Terminal to get its SHA-256 (change the path if you saved it elsewhere). If it differs from the table, do not open the app. Contact support.
+Run this command in Terminal to get your download's SHA-256 (change the path if you saved it elsewhere or the file name differs). If it differs from the value on the product page, do not open the app. Contact support.
 
 ```sh
 shasum -a 256 ~/Downloads/Agent-Liche-0.2.0-mac.zip
@@ -31,6 +31,8 @@ shasum -a 256 ~/Downloads/Agent-Liche-0.2.0-mac.zip
 ## 2. Moving to Applications
 
 In Finder, drag `Agent Liche.app` to **Applications**. This keeps it in a consistent location for automatic startup and updates. After moving it, you can delete the zip from Downloads.
+
+If you run it from an external drive (a removable volume), macOS first asks whether it may access the removable volume, and the chat window does not start until you answer. We recommend moving the app to Applications. To use it from the external drive, click **Allow** (Korean: **허용**) in that dialog.
 
 ## 3. Opening for the first time
 
@@ -56,6 +58,7 @@ Liche itself does not request Screen Recording, Accessibility, Input Monitoring,
 | Request | When it appears and how to respond |
 | --- | --- |
 | Agent Liche notifications | Asked when Liche first sends a notification. Choose **Allow** to receive notifications. Change this later under **System Settings › Notifications › Agent Liche** |
+| Removable volume access | Asked only the first time you open the app from an external drive. The chat window does not start until you answer. Choose **Allow** (Korean: **허용**), or move the app to Applications and open it there |
 | Keychain access for `liche-judge` | May appear when saving or reading a JEV key. Check that the requesting program is `liche-judge`, then choose **허용** or **항상 허용** (Always Allow). Starting with the signed 0.2.0 release, future versions from the same developer reuse this permission |
 | Permissions for the connected agent | Requests such as Documents folder access come from that agent. Check the request and the program before responding |
 
@@ -98,7 +101,7 @@ Files that macOS creates for each app may also remain. In `~/Library/Preferences
 2. Select the **로그인** (login) keychain and search for `com.agentliche.jev`.
 3. Right-click the item and choose **삭제** (Delete).
 
-Clean up old-version folders separately by following [Updating](updates.md#cleaning-up-old-folders). The connected agent is separate from Liche. Deleting the app leaves that program and its data in place.
+The connected agent is separate from Liche. Deleting the app leaves that program and its data in place.
 
 ## Next steps
 

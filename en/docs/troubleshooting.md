@@ -6,9 +6,105 @@
 
 | Platform | Issue | Solution or workaround |
 | --- | --- | --- |
-| Windows | Without code signing, SmartScreen shows "Windows protected your PC" (Korean: "Windows의 PC 보호") on first launch | Click **More info › Run anyway** (Korean: **추가 정보 › 실행**). See [instructions](install-windows.md#when-windows-protected-your-pc-appears-smartscreen). Code signing will be added in the next update |
-| Windows | At 125% or 150% display scaling, text-field context menus (copy/paste) and hover tooltips in windows such as Liche Settings render small at 100% | Functionality is unaffected. The windows and text themselves follow the monitor's scale. A fix is planned for the next update |
-| Windows | PCs with Smart App Control enabled may block the unsigned 0.2.0 release without a **Run anyway** button | Contact support |
+| macOS | The first time you open the app from an external drive (a removable volume), macOS asks whether it may access the removable volume, and the chat window does not start until you answer | Click **Allow** (Korean: **허용**), or move the app to the **Applications** folder and open it there ([macOS installation](install-mac.md#2-moving-to-applications)) |
+| macOS | When Liche runs for a long time, the character program's memory grows slowly. This comes from the engine (Unreal Engine); before release it measured about 38 MB per hour | Quitting and reopening Liche frees it. We plan to ship the fix in an update once the engine has one |
+| Windows 0.2.0 (not yet published) | Without code signing, SmartScreen shows "Windows protected your PC" (Korean: "Windows의 PC 보호") on first launch | Click **More info › Run anyway** (Korean: **추가 정보 › 실행**). See [instructions](install-windows.md#when-windows-protected-your-pc-appears-smartscreen). Code signing will be added in the next update |
+| Windows 0.2.0 (not yet published) | At 125% or 150% display scaling, text-field context menus (copy/paste) and hover tooltips in windows such as Liche Settings render small at 100% | Functionality is unaffected. The windows and text themselves follow the monitor's scale. A fix is planned for the next update |
+| Windows 0.2.0 (not yet published) | PCs with Smart App Control enabled may block the unsigned 0.2.0 release without a **Run anyway** button | Contact support |
+
+Known issues of Windows 0.1.0, which the store gives you today, are in the [0.1.0 guide](https://github.com/gujo-io/agent-liche-docs/blob/390cc92b9970fdc7c8191cf37b2a653edc4dce7d/docs/troubleshooting.md) (Korean).
+
+## When the connection fails
+
+Liche runs the agent you chose (OpenClaw, Claude Code, Codex, Hermes) herself to talk with it. If the agent cannot start, Liche reads the reason, shows it, and tells you what to do, with the command. Liche never installs, starts, or reconfigures an agent for you. Run the commands yourself.
+
+### Where it appears
+
+- **리체 시작하기 › 리체를 연결해 주세요** (Start Liche › Please connect Liche, macOS): The chosen agent's row shows the status, and a box below it shows the reason and the command. Click **복사** (Copy) beside the command to copy it.
+- **The chat window** (above the input box): The same reason and command, **복사** (Copy), and **다시 연결** (Reconnect).
+- **리체 설정 › 연결** (Liche Settings › Connections): The status appears beside the agent's name, with the reason in one line below it. **연결 설정 열기** (Open connection settings) opens the connection screen above.
+- **연결 설정** (Connection settings, Windows 0.2.0): The reason, the command, and **다시 연결** appear under the card of the agent being connected.
+
+### Status names
+
+| Status | Meaning | What to do |
+| --- | --- | --- |
+| 연결 중 (Connecting) | Liche is starting the agent. | Wait a moment. |
+| 다시 시도 중 (3/8) (Retrying (3/8)) | The agent could not start, so Liche is trying again on her own. The number is the attempt; she tries up to 8 times. | Fix the reason below, then click **다시 연결** (Reconnect) to try again at once instead of waiting. |
+| 해결 필요 (Needs a fix) | Liche stopped trying again. | Fix the reason, then click **다시 연결**. |
+| 연결됨 (Connected) | You can chat. | |
+
+While she is not connected, Liche cries inside her card. She stops as soon as the connection is back.
+
+### Common reasons
+
+Paste the commands into Terminal on macOS or PowerShell on Windows.
+
+#### OpenClaw
+
+- **OpenClaw 설정에 고칠 곳이 있어요** (OpenClaw's settings need fixing)
+  OpenClaw's settings file has a value this version does not know. This often happens after another OpenClaw version changed the settings.
+  ```
+  openclaw doctor --fix
+  ```
+- **OpenClaw 게이트웨이가 꺼져 있어요** (OpenClaw's gateway is off)
+  OpenClaw talks through its gateway service. If you never installed the gateway, run both commands in order; if you did, run only the second.
+  ```
+  openclaw gateway install
+  openclaw gateway start
+  ```
+  Liche checks that the gateway is running even before connecting, and says so in the OpenClaw row if it is off.
+- **OpenClaw 게이트웨이가 인증을 요구해요** (OpenClaw's gateway requires authentication)
+  Appears when the gateway's token or pairing does not match. Run OpenClaw's check with the command below and follow what it says.
+  ```
+  openclaw doctor
+  ```
+- **OpenClaw가 자기 데이터를 정리하는 중이에요** (OpenClaw is tidying its own data)
+  While OpenClaw tidies its data, it cannot start for a moment. When it finishes, Liche reconnects on her own. Nothing to do.
+- **OpenClaw가 오래된 버전이에요** (OpenClaw is an old version)
+  ```
+  npm install -g openclaw@latest --allow-scripts=openclaw
+  ```
+
+#### Claude Code
+
+- **Claude Code에 로그인해야 해요** (You need to sign in to Claude Code)
+  ```
+  claude auth login
+  ```
+
+#### Codex
+
+- **Codex에 로그인해야 해요** (You need to sign in to Codex)
+  If the codex command already exists, run only the second command.
+  ```
+  npm install -g @openai/codex
+  codex login
+  ```
+
+#### Hermes
+
+- **Hermes가 아직 AI 제공자와 연결되지 않았어요** (Hermes is not connected to an AI provider yet)
+  ```
+  hermes model
+  ```
+
+#### Every agent
+
+- **(에이전트)에 필요한 Node.js를 찾지 못했어요** / **(에이전트)에 필요한 Node.js가 오래됐어요** (Node.js needed by (agent) was not found / is too old)
+  The ACP adapters of OpenClaw, Claude Code, and Codex run on Node.js. Install or update it with the command shown (`brew install node`, `brew upgrade node`, or `winget install OpenJS.NodeJS` on Windows).
+- **(에이전트)가 리체와 맞지 않는 오래된 버전이에요** ((Agent) is an old version that does not work with Liche)
+  Install the new version of the agent with the installation command shown.
+- **(에이전트)를 실행하지 못했어요** (Could not run (agent))
+  Appears when the agent was deleted or moved. Reinstall it with the installation command shown.
+- **(에이전트)가 응답하지 않아요** ((Agent) is not responding)
+  Check that the agent is running. On macOS, answer any permission dialog first. Liche tries to reconnect after a short wait. See [Connecting an agent](agents.md#when-the-agent-does-not-respond) for detailed steps.
+- **(에이전트)가 대화를 시작하지 못했어요 · (에이전트)가 남긴 말: “…”** ((Agent) could not start a conversation · What (agent) said: "…")
+  When Liche cannot tell the reason, she shows the first line of the agent's own error. Keys, tokens, email addresses, and your user folder name in it are masked. If the agent suggested a command itself (for example, `openclaw doctor`), it is shown too.
+
+### If it still does not work
+
+Create a diagnostic file with **리체 설정 › 리체 정보 › 진단 파일 만들기** (Liche Settings › About Liche › Create diagnostic file) and send it to support. Chat text, keys, and account names are masked in it. Also see [What to include when contacting support](#what-to-include-when-contacting-support) below.
 
 ## Installation and launch
 
@@ -28,7 +124,7 @@ The app does not open on Intel Macs. Version 0.2.0 supports only Apple Silicon M
 
 ### macOS asks for permissions
 
-Liche herself asks only for notifications and, when using emotion judgment, keychain access. Other requests, such as Documents folder access, usually come from the connected agent. The agent pauses until you respond, so answer first. See [macOS installation](install-mac.md#4-permissions-macos-may-request) for which dialogs appear and why.
+Liche herself asks only for notifications and, when using emotion judgment, keychain access. The first time you open the app from an external drive, macOS also asks about removable volume access; the chat window does not start until you answer, so click **Allow** (Korean: **허용**) or move the app to Applications. Other requests, such as Documents folder access, usually come from the connected agent. The agent pauses until you respond, so answer first. See [macOS installation](install-mac.md#4-permissions-macos-may-request) for which dialogs appear and why.
 
 ### There are two Liches after launching a new version on Windows
 
@@ -40,13 +136,21 @@ If the old version is still running, it may appear alongside the new one. Quit b
 
 "리체가 아직 바깥과 연결되지 않았어요" (Liche is not connected to the outside yet) means no agent is connected. Click **연결 설정** (Connection settings) on Windows or **리체 연결하기** (Connect Liche) on macOS to choose one. See [Connecting an agent](agents.md).
 
-### Liche keeps dozing
+### Liche is crying
 
-Liche dozes only when she is not connected to an agent. Check the connection card at the top of the **리체 설정** (Liche Settings) sidebar. If the agent stopped or is not responding, follow [Connecting an agent](agents.md#when-the-agent-does-not-respond). Liche wakes on her own once connected.
+She is not connected to an agent, or the connection was lost. Check the status and reason on the connection card at the top of the **리체 설정** (Liche Settings) sidebar, and follow [When the connection fails](#when-the-connection-fails) above. She stops crying as soon as she connects. Clicking her does not stop it.
+
+### Liche is dozing or asleep
+
+When nobody talks to her for a while, Liche dozes with Zz above her head, and later falls fast asleep. This is normal. Click her or send a message to wake her. From a deep sleep, two clicks wake her fully.
 
 ### The agent is not responding
 
 "(에이전트)가 응답하지 않아요" ((Agent) is not responding) means the agent did not answer within 45 seconds. Check permission dialogs, agent login, and the installation location in that order. Liche tries reconnecting after a short wait. See [Connecting an agent](agents.md#when-the-agent-does-not-respond) for detailed steps.
+
+### Codex gives no reply after a rejection
+
+If Codex asks to run a command that needs more than its workspace allows and you choose **거절** (Reject), Codex stops that turn and ends without a reply. Tell it what to do differently. See [How Codex asks for approval](agents.md#how-codex-asks-for-approval).
 
 ### It has been 30 seconds since saving the connection
 
@@ -128,7 +232,7 @@ If the color scheme is **직접** (Custom) and your custom Light and Dark colors
 
 Liche continuously renders a 3D character, so she steadily uses CPU and GPU resources. Reduce usage in this order.
 
-1. Set **리체 설정 › 성능 › 성능 프로필** (Liche Settings › Performance › Performance profile) to **절약** (Power saving).
+1. Set **리체 설정 › 성능 › 성능 프로필** (Liche Settings › Performance › Performance profile) to **절약** (Power saving). On a Retina Mac the profile also sets Liche's image quality: **고품질** (High quality, 2×) uses the most and **절약** (1×) the least ([Retina screens](settings.md#retina-screens-macos)).
 2. Lower **최대 프레임** (Maximum frame rate). 15 uses the fewest resources.
 3. Keep **가려지면 쉬기** (Pause when hidden) enabled. On Windows and macOS, rendering pauses when Liche is not visible, such as when another window fully covers her.
 4. On Windows, setting **선명도** (Sharpness) to **보통** (Normal) greatly reduces GPU use. Restart Liche to apply it.
@@ -147,14 +251,14 @@ After more than 20 seconds without changes, Liche automatically lowers rendering
 
 ## After updating
 
-### Chat history and settings disappeared after an update
+### Chat history and settings disappeared after an update (Windows)
 
-The update that renames Lize to Liche starts like a fresh installation. Old history and settings are not deleted. They remain in the old `LizeWidget` and `Lize` folders, but the new version does not read them. Copy any guide files you need from the old guide folder to the new one yourself. See [Updating](updates.md).
+This happens when you switch from 0.1.0 to 0.2.0 on Windows. It does not apply to macOS, where 0.2.0 is the first edition. The update that renames Lize to Liche starts like a fresh installation. Old history and settings are not deleted. They remain in the old `LizeWidget` and `Lize` folders, but the new version does not read them. Copy any guide files you need from the old guide folder to the new one yourself. See [Updating](updates.md).
 
 ## What to include when contacting support
 
 - Operating system and version, such as Windows 11 24H2 or macOS 26.5
-- Version line under **리체 설정 › 리체 정보** (Liche Settings › About Liche), such as `버전 0.2.0 (2026.11.02 · a2b5fea)` (Version 0.2.0 (2026.11.02 · a2b5fea))
+- Version line under **리체 설정 › 리체 정보** (Liche Settings › About Liche), such as `버전 0.2.0 (date · commit)` (Version 0.2.0 (date · commit))
 - Connected agent and its version
 - What you did, what happened, and the exact wording shown on-screen
 - If possible, attach the desktop `Liche-diagnostics-날짜-시각.zip` made with **리체 설정 › 리체 정보 › 진단 파일 만들기** (Liche Settings › About Liche › Create diagnostic file). It contains logs, settings, recent crash reports, version, and display information. It excludes chat history, attachments, JEV key files, and memory dumps. It redacts chat text, keys, tokens, and user paths in logs. It is not sent automatically. **Open and check it yourself** before sending.

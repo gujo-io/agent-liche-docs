@@ -2,26 +2,25 @@
 
 [Guide home](../README.md) · [한국어](../../docs/install-windows.md)
 
+> **The Windows file you get from the store today is 0.1.0.** 0.2.0 is published for macOS first; Windows 0.2.0 is not published yet. For installing and using 0.1.0, see [Windows installation in the 0.1.0 guide](https://github.com/gujo-io/agent-liche-docs/blob/390cc92b9970fdc7c8191cf37b2a653edc4dce7d/docs/install-windows.md) (Korean). The rest of this page applies once Windows 0.2.0 is published. When it is, the [Changelog](../CHANGELOG.md) and this page will say so.
+
 ## What you need
 
 - A Windows 11 64-bit (x64) PC. **Windows 10 and ARM-based Windows are not supported.**
-- A graphics card that supports DirectX 12 (Shader Model 6). No minimum CPU or memory requirements are specified.
+- A graphics card that supports DirectX 12 (Shader Model 6).
+- 16 GB of memory is recommended; 8 GB is the minimum.
 - At least 1 GB of free space for both the downloaded zip file and the extracted folder.
 - An AI agent installed and signed in separately. See [Connecting an agent](agents.md).
 
 ## 1. Downloading
 
-Sign in to the Gujo store and download the Windows zip for Agent Liche (`Agent-Liche-0.2.0-windows.zip`) from your library. If you use Gujo Cloud Apps, follow the installation instructions for this product.
+Sign in to the Gujo store and download the Windows zip for Agent Liche from your library. If you use Gujo Cloud Apps, follow the installation instructions for this product.
 
 ### Checking your download (optional)
 
-The 0.2.0 Windows release is not code-signed. The size and SHA-256 below let you check that your download matches the file distributed by the store.
+The Windows release is not code-signed, so it is worth checking that your download matches the file distributed by the store. Each file's name, size, and SHA-256 value are listed under **Version history** on the [store product page](https://app.gujo.io/products/287?lang=en).
 
-| File | Size (bytes) | SHA-256 |
-| --- | --- | --- |
-| `Agent-Liche-0.2.0-windows.zip` | `290,911,096` | `7455eb5882bd311f28139f69867a262939245e05e5fd6432adbeff3e2e230a6c` |
-
-Run this PowerShell command to get its SHA-256 (change the path if you saved it elsewhere). If even one character differs from the table, do not run the file. Contact support.
+Run this PowerShell command to get your download's SHA-256 (change the path if you saved it elsewhere or the file name differs). If even one character differs from the product page, do not run the file. Contact support.
 
 ```powershell
 Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\Agent-Liche-0.2.0-windows.zip"

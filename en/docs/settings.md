@@ -14,11 +14,11 @@ Options marked "(Windows)" are Windows-only. They do not appear on macOS because
 
 ## Connections
 
-The card at the top of the sidebar shows the connected agent and status, such as `Hermes · 연결됨` (Hermes · Connected). Click it to open the connection page.
+The card at the top of the sidebar shows the connected agent and status, such as `Hermes · 연결됨` (Hermes · Connected) or `OpenClaw · 다시 시도 중 (3/8)` (OpenClaw · Retrying (3/8)). The status is one of **연결 중** (Connecting), **다시 시도 중** (Retrying), **해결 필요** (Needs a fix), and **연결됨** (Connected). Click the card to open the connection page.
 
 | Option | Description |
 | --- | --- |
-| **연결 설정 열기** (Open connection settings) | Opens agent selection. On macOS, this is the connection step of first-run setup. On Windows, it opens **연결 설정** (Connection settings). Connection problems appear below the card |
+| **연결 설정 열기** (Open connection settings) | Opens agent selection. On macOS, this is the connection step of first-run setup. On Windows, it opens **연결 설정** (Connection settings). If there is a connection problem, the reason appears in one line under the agent's name. What to do for each reason is in [When the connection fails](troubleshooting.md#when-the-connection-fails) |
 | **선택 기능 › 감정 판단 (JEV) · 선택** (Optional features › Emotion judgment (JEV) · Optional) | Uses the conversation to choose Liche's emotions and reaction strength. Enable or disable it with the switch on the right, and open the key window with **키 입력 ›** (Enter key ›). Without a key the switch shows off, and pressing it opens the key window. When enabled, part of your conversation goes to TypeSafe AI in the United States. You need your own JEV key and separate credits. Only input tokens are charged. **자세히 ›** (Details ›) opens [Emotion judgment (JEV)](jev.md) |
 
 If the chat window program is not running, the card shows **리체 대화 꺼짐** (Liche chat is off). See [Troubleshooting](troubleshooting.md).
@@ -46,18 +46,18 @@ Both pages have the same layout. Click **‹** (Back) at the top to return to Mo
 | **지침** (Guides) | **공통 지침** (Common guide) | Opens Liche's basic guide file, which both modes read first |
 | **지침** | **일상 지침**, **업무 지침** (Everyday guide, Work guide) | Opens the guide Liche reads in this mode |
 | **지침** | **일상 폴더**, **업무 폴더** (Everyday folder, Work folder) | Opens the folder containing the entry file (`AGENTS.md`) and skills folder (`skills`) |
-| **대화** (Chat) | **모델** (Model) | Model for this mode. Click to expand the list supplied by the connected agent. **에이전트 기본값** (Agent default) is first |
-| **대화** | **생각 깊이** (Thinking depth) | Choose a supported thinking depth for the selected model using chips. The default is first. For models without this choice, "이 모델은 생각 깊이를 고르지 않아요" (This model does not offer a thinking-depth choice) appears |
+| **대화** (Chat) | **모델** (Model) | Model for this mode. Click to expand the list supplied by the connected agent. **에이전트 기본값** (Agent default) is first. For an agent without a model list (OpenClaw), only **에이전트 기본값** appears |
+| **대화** | **생각 깊이** (Thinking depth) | Choose a supported thinking depth for the selected model using chips. The default is first. For a model without this choice (Hermes, for example), "이 모델은 생각 깊이를 고르지 않아요" (This model does not offer a thinking-depth choice) appears. If the agent reports neither models nor thinking depths, "이 연결은 생각 깊이를 고를 수 없어요" (You cannot choose a thinking depth with this connection) appears |
 
 Clothes and glasses change immediately when you are viewing that mode. See [Guide files](guides.md) for details about guides.
 
 ### Models and thinking depth for each mode
 
 - Everyday and Work remember their models and thinking depth **separately**. For example, use a fast model for Everyday and a deeper-thinking model for Work.
-- Selections apply to that mode from the next message and remain after restarting Liche.
+- Claude Code, Codex, OpenClaw, and Hermes all show the models and thinking depths that agent reports. A selection applies to that mode's conversation right away, and the thinking depths of the chosen model appear again at once. Selections remain after restarting Liche. What each agent offers is in [Models and thinking depth by agent](agents.md#models-and-thinking-depth-by-agent).
 - With no selection, the connected agent's defaults apply. If the agent no longer lists a selected model, Liche returns to the default.
 - The gear in the chat header takes you directly to these settings for the current mode.
-- If the agent supplies no model list, "이 연결은 모델을 고를 수 없어요" (You cannot choose a model with this connection) appears and selection is unavailable. If the chat window program is off, you see "리체 대화가 꺼져 있어 바꿀 수 없어요" (Liche chat is off, so this cannot be changed).
+- If the agent reports neither models nor thinking depths, "이 연결은 모델을 고를 수 없어요" (You cannot choose a model with this connection) appears and selection is unavailable. If the chat window program is off, you see "리체 대화가 꺼져 있어 바꿀 수 없어요" (Liche chat is off, so this cannot be changed).
 
 ## Notifications
 
@@ -118,6 +118,18 @@ Centering the card is also available from the macOS Dock icon menu and app menu 
 | **고품질** | 30 | 60 | Sharp, background blur on |
 
 All three profiles have **가려지면 쉬기** enabled. In 0.2.0, Balanced and High quality idle rates were lowered from 30/60 to 20/30. Settings files retaining the old Balanced or High quality values are read as the same profiles with the new values. Liche always renders at the maximum rate while speaking, reacting, being dragged, or fading.
+
+### Retina screens (macOS)
+
+On a Retina screen, the card's glass, icons, the marks above her head, text, and the **리체 설정** (Liche Settings) window are always drawn sharply at the screen's own pixels. Liche's 3D image follows the performance profile, and a profile change applies at once.
+
+| Profile | How Liche's 3D image is drawn on a Retina screen |
+| --- | --- |
+| **절약** (Power saving) | 1× (one pixel per screen point) |
+| **균형** (Balanced, default), **사용자 지정** (Custom) | 1.5× |
+| **고품질** (High quality) | 2× (the screen's own pixels) |
+
+On a non-Retina screen, Liche is drawn as before in every profile. Higher quality uses more CPU and GPU. On laptops, we recommend **균형** or **절약**. If you move the card to a screen with another scale, Liche redraws for that screen at once.
 
 At the bottom, **지금 리체가 쓰는 양** (Liche's current resource use) shows frame rate, CPU, GPU, and memory use every second. All changes except sharpness apply immediately. **지금 다시 시작** relaunches only the character, without interrupting chat or the connection.
 

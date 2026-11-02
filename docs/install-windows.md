@@ -2,26 +2,25 @@
 
 [안내서 처음으로](../README.md) · [English](../en/docs/install-windows.md)
 
+> **지금 스토어에서 받는 Windows 파일은 0.1.0이에요.** 0.2.0은 macOS 판을 먼저 공개했고, Windows 판 0.2.0은 아직 공개하지 않았어요. 0.1.0의 설치와 사용은 [0.1.0 안내서의 Windows 설치](https://github.com/gujo-io/agent-liche-docs/blob/390cc92b9970fdc7c8191cf37b2a653edc4dce7d/docs/install-windows.md)를 봐 주세요. 이 페이지의 아래 내용은 Windows 0.2.0이 공개되면 적용돼요. 공개되면 [변경 기록](../CHANGELOG.md)과 이 페이지에 알려 드려요.
+
 ## 필요한 것
 
 - Windows 11 64비트(x64) PC. **Windows 10과 ARM 기반 Windows는 지원하지 않아요.**
-- DirectX 12(셰이더 모델 6)를 지원하는 그래픽 카드. CPU와 메모리의 최소 사양은 따로 정하지 않았어요.
+- DirectX 12(셰이더 모델 6)를 지원하는 그래픽 카드.
+- 메모리 16 GB를 권하고, 최소 8 GB가 필요해요.
 - 내려받은 zip 파일과 풀린 폴더를 함께 둘 여유 공간 1 GB 이상.
 - 별도로 설치하고 로그인한 AI 에이전트. [에이전트 연결](agents.md)을 참고해요.
 
 ## 1. 내려받기
 
-Gujo 스토어에 로그인한 뒤 라이브러리에서 Agent Liche의 Windows용 zip 파일(`Agent-Liche-0.2.0-windows.zip`)을 내려받아요. Gujo Cloud Apps를 사용한다면 해당 상품의 설치 안내를 따라요.
+Gujo 스토어에 로그인한 뒤 라이브러리에서 Agent Liche의 Windows용 zip 파일을 내려받아요. Gujo Cloud Apps를 사용한다면 해당 상품의 설치 안내를 따라요.
 
 ### 받은 파일 확인하기 (선택)
 
-0.2.0 Windows 판은 코드 서명이 없어서, 받은 파일이 스토어가 배포한 파일과 같은지 직접 확인할 수 있게 크기와 SHA-256 값을 적어 둬요.
+Windows 판은 코드 서명이 없어서, 받은 파일이 스토어가 배포한 파일과 같은지 직접 확인해 두면 좋아요. 파일마다의 이름, 크기, SHA-256 값은 [스토어 상품 페이지](https://app.gujo.io/products/287?lang=ko)의 **버전 기록**에 있어요.
 
-| 파일 | 크기(바이트) | SHA-256 |
-| --- | --- | --- |
-| `Agent-Liche-0.2.0-windows.zip` | `290,911,096` | `7455eb5882bd311f28139f69867a262939245e05e5fd6432adbeff3e2e230a6c` |
-
-PowerShell에서 아래 명령을 실행하면 SHA-256 값이 나와요(다른 폴더에 받았다면 경로를 바꿔요). 위 표의 값과 한 글자라도 다르면 실행하지 말고 고객지원에 알려 주세요.
+PowerShell에서 아래 명령을 실행하면 받은 파일의 SHA-256 값이 나와요(다른 폴더에 받았거나 파일 이름이 다르면 경로를 바꿔요). 상품 페이지의 값과 한 글자라도 다르면 실행하지 말고 고객지원에 알려 주세요.
 
 ```powershell
 Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\Agent-Liche-0.2.0-windows.zip"

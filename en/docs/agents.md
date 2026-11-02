@@ -94,7 +94,7 @@ This guide does not provide a separate command for installing the Hermes ACP ext
 
 If no agent is installed, Liche shows installation steps, commands to copy, and an **설치 안내** (Installation guide) link. **Liche does not install the agent for you.**
 
-- **macOS:** Under **리체를 연결해주세요** (Please connect Liche) in first-run setup, click a row marked **설치 안 됨** (Not installed). Click **복사** (Copy) beside a command and run it in Terminal. Liche checks again about every five seconds.
+- **macOS:** Under **리체를 연결해 주세요** (Please connect Liche) in first-run setup, click a row marked **설치 안 됨** (Not installed). Click **복사** (Copy) beside a command and run it in Terminal. Liche checks again about every five seconds.
 - **Windows:** Click **설치 방법 보기** (View installation steps) under **연결 설정 › 다른 에이전트** (Connection settings › Other agents). For Hermes, open the guide from its card. After installation, use **다시 확인** (Check again) to search.
 - Once the agent is shown as installed, click its **연결하기** (Connect) button.
 
@@ -119,7 +119,7 @@ If Node.js is too old, the helper treats the agent as not installed. For Hermes,
 
 ## Connecting on macOS
 
-Choose under **리체를 연결해주세요** in first-run setup. If you closed it, return through **리체 연결하기** (Connect Liche) in the chat window or **리체 설정 › 연결 › 연결 설정 열기** (Liche Settings › Connections › Open connection settings).
+Choose under **리체를 연결해 주세요** in first-run setup. If you closed it, return through **리체 연결하기** (Connect Liche) in the chat window or **리체 설정 › 연결 › 연결 설정 열기** (Liche Settings › Connections › Open connection settings).
 
 - **이 컴퓨터에서 찾은 연결:** Liche searches PATH, `/opt/homebrew/bin`, `/usr/local/bin`, and `~/.local/bin`. Select an installed row and click **연결하기**.
 - **에이전트로 연결하기:** If your agent is not listed or is installed elsewhere, click **복사** and paste the copied text into the agent you use. The agent registers Liche's MCP server and connects as her conversation partner.
@@ -145,22 +145,57 @@ A response beginning with `Connected` means the connection succeeded. Liche will
 ## What agents can do
 
 - **Chat:** Continue separate Everyday and Work conversations. Per-mode working folders are `~/Liche/<모드>` on macOS and `Documents\Liche\<모드>` on Windows.
-- **Approval requests:** Choose **승인** (Approve) or **거절** (Reject) before tool use. Liche does not approve automatically. **■ 중지** (Stop) or disconnecting cancels pending requests.
+- **Approval requests:** Choose **승인** (Approve) or **거절** (Reject) before tool use. Liche does not approve automatically. See [Approval requests](#approval-requests) below.
 - **Long tool tasks:** While the agent uses tools, the two-minute "응답이 없어요" (No response) limit does not apply. Liche stops waiting only after 30 minutes without an update. The chat shows "작업 중이에요 · 경과 시간" (Working · elapsed time). See [Reply waiting times](first-run.md#reply-waiting-times).
+- **Long replies:** Text is shown as the agent sends it. Even a long paragraph without blank lines appears line by line instead of all at once at the end.
 - **Liche's MCP server:** Agents can change expressions and actions and show short speech bubbles. This server cannot read chat history, settings, or keys.
-- **Models and thinking depth:** Choose each under **리체 설정 › 모드 › 일상(또는 업무) › 대화**. **에이전트 기본값** (Agent default) uses the agent's own value. You cannot choose if the agent does not offer the option.
+- **Models and thinking depth:** Choose each under **리체 설정 › 모드 › 일상(또는 업무) › 대화**. **에이전트 기본값** (Agent default) uses the agent's own value. What you can choose differs by agent. See [Models and thinking depth by agent](#models-and-thinking-depth-by-agent) below.
 - **Attachments:** The attachment button appears only if the connection supports it. Features vary by agent.
 
-## When the agent does not respond
+## Approval requests
 
-If no response arrives within 45 seconds of launching the agent, the connection card and chat window show the reason. The message is "응답하지 않아요" (Not responding).
+When the agent asks before using a tool, such as editing files or running commands, the chat window shows **확인이 필요해요** (Your confirmation is needed) with **승인** (Approve) and **거절** (Reject).
+
+- Liche answers with the option, among those the agent sent with its request, that allows or rejects **this one time only**. She never picks a lasting rule such as "always allow".
+- **■ 중지** (Stop) or a lost connection cancels all pending requests.
+- The agent decides what it asks about. Claude Code follows your own Claude Code permission setting (`permissions.defaultMode`), and Hermes asks before editing files by default.
+
+### How Codex asks for approval
+
+Liche connects Codex in **Workspace access** mode. In this mode, Codex asks for approval in the chat window **before writing files outside its work folder and the temporary folders, or before using the network**. In codex-acp's default mode ("Auto review"), Codex's own reviewer model approves its requests and nothing reaches you, so Liche chooses this mode when it connects.
+
+- You cannot change Codex's mode in Liche. codex-acp does not read the approval setting in `~/.codex/config.toml` either.
+- If Codex asks to run a command that needs more than its workspace allows and you choose **거절** (Reject), Codex stops that turn and ends without a reply. Only your rejection line stays in the chat. Tell it what to do differently.
+
+## Models and thinking depth by agent
+
+Liche shows the models and thinking depths the connected agent reports. A choice in **리체 설정** (Liche Settings) applies to that mode's conversation right away, and the thinking depths of the chosen model appear again at once. Liche does not change the agent's own setting files.
+
+| Agent | Model | Thinking depth |
+| --- | --- | --- |
+| Claude Code | The model list Claude Code reports | The depths the chosen model takes (for example, 낮음 (Low) to 최대 (Max)) |
+| Codex | The model list Codex reports | Differs by model; some models lack some depths |
+| OpenClaw | No list; only **에이전트 기본값** (Agent default) appears | OpenClaw's thinking levels (끔 (Off), 최소 (Minimal), 낮음 (Low), 보통 (Medium), 높음 (High), 자동 (Adaptive)) |
+| Hermes | The model Hermes reports | Not available; the row says "이 모델은 생각 깊이를 고르지 않아요" (This model does not take a thinking depth) |
+
+The lists can differ by agent, its version, and your account. The settings rows are described in [Liche Settings](settings.md#models-and-thinking-depth-for-each-mode).
+
+## When the connection fails or "Not responding" appears
+
+When an agent cannot start, Liche reads the reason and shows it on the connection screen, in the chat window, and under **리체 설정 › 연결** (Liche Settings › Connections), with the command to run and a **다시 연결** (Reconnect) button. Status names and what to do for each reason are collected in [When the connection fails](troubleshooting.md#when-the-connection-fails) in Troubleshooting.
+
+### When the agent does not respond
+
+If no response arrives within 45 seconds of launching the agent, the connection card and chat window show "(agent)가 응답하지 않아요" ((Agent) is not responding).
 
 1. If an operating-system permission dialog is open, check the requesting program and request, then respond.
 2. Open the agent directly and finish login and model setup.
 3. Check the installation location and ACP extra components.
-4. Liche tries reconnecting after a short wait. If it keeps failing, select the agent again through **연결 설정 열기** (Open connection settings).
+4. Liche tries reconnecting after a short wait. To try at once after fixing it, click **다시 연결** (Reconnect).
 5. If the problem remains, [contact support with diagnostics](troubleshooting.md#what-to-include-when-contacting-support).
 
 ## Changing or disconnecting an agent
 
-Selecting a new agent on the connection screen changes the saved connection. You cannot switch while either mode is waiting for a reply or has a pending approval request. Click **■ 중지** or wait for it to finish.
+Selecting a new agent on the connection screen changes the saved connection. If you pick another agent while one is connected, the button changes to **연결하기** (Connect); click it and both Everyday and Work reconnect to the new agent. You cannot switch while either mode is waiting for a reply or has a pending approval request. Click **■ 중지** or wait for it to finish.
+
+When you switch agents or quit Liche, Liche ends that agent together with the commands it started. **■ 중지** only stops the current reply and leaves the agent running, so the agent decides whether a program it was running stays.

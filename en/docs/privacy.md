@@ -11,7 +11,7 @@ This page explains what Liche leaves on your computer and when she connects outs
 - Retail Liche does not open ports for incoming connections. Agent connections also run between programs on the same computer.
 - Liche's replies come from the connected AI agent. The agent may send conversations to its AI service to create replies.
 - JEV is optional. Information needed for judgment goes to TypeSafe AI in the United States only when you enable it and enter a key.
-- New version notifications check a small file on GitHub. GitHub can learn your IP address during this check. You can turn it off.
+- New version notifications check a small file that the Gujo store makes for the product. The store can learn your IP address during this check. You can turn it off.
 
 ## AI notice
 
@@ -37,12 +37,12 @@ The table below lists everything Liche herself sends over the network. The progr
 
 | Who | Destination | When | What is sent | How to turn it off |
 | --- | --- | --- | --- | --- |
-| Update check in the chat window program | `https://raw.githubusercontent.com/gujo-io/agent-liche-docs/main/latest.json` (GitHub) | Automatically up to once a day, starting 30 seconds after launch; also when you open **리체 정보** (About Liche), up to once every 10 minutes | Only a request for the file. No browser information (User-Agent), cookies, account information, or device information is sent. GitHub can learn your IP address during the connection | Turn off **리체 설정 › 리체 정보 › 새 버전 알림** (Liche Settings › About Liche › New version notifications) |
+| Update check in the chat window program | `https://app.gujo.io/products/287/latest.json` (the version information file the Gujo store makes from the product's published files) | Automatically up to once a day, starting 30 seconds after launch; also when you open **리체 정보** (About Liche), up to once every 10 minutes | Only a request for the file. No query string, browser information (User-Agent), cookies, account information, or device information is sent. HTTPS only, and redirects are not followed. The store can learn your IP address during the connection | Turn off **리체 설정 › 리체 정보 › 새 버전 알림** (Liche Settings › About Liche › New version notifications) |
 | Emotion judgment program `liche-judge` (optional) | `https://api.typesafe.ai/v1/systemone` (TypeSafe AI, United States) | Only when JEV is enabled and your own key is saved. Once to validate a saved key, then twice per judged exchange | Your message in that exchange, Liche's reply and speech bubbles, up to five preceding exchanges, Liche's personality description and mood, and the key attached to the request | Turn off **리체 설정 › 연결 › 감정 판단 (JEV) · 선택** (Liche Settings › Connections › Emotion judgment (JEV) · Optional), or have no key saved |
 | Legacy file classification window in the chat window program | `/v1/systemone` on the server specified in your environment variables | Only when both the server address and key are set in environment variables and you drop a file into the old standalone window. There is no default server | The dropped file's name and the world name | Does not run without those environment variables (the default) |
 | Default browser or mail app | Guide, license agreement, third-party notices, support, store pages, and links in conversations | Only when you click a link | The usual information a browser sends when opening a page | Does not open unless clicked |
 
-The update check does not download or install files based on the response. It uses only `https` links to the store (`gujo.io`) and guide (`github.com`) from the received file. The legacy file classification window passes the key and request through `curl` standard input, so other programs cannot see the key on the command line.
+The update check does not download or install files based on the response. It reads at most 64 KiB and uses only `https` links to the store (`app.gujo.io`, `asset.gujo.io`) and guide (`github.com`) from the received file. The legacy file classification window passes the key and request through `curl` standard input, so other programs cannot see the key on the command line.
 
 ### The agents you connect
 
@@ -81,5 +81,5 @@ When an agent requests permission to use a tool, Liche waits for **승인** (App
 | Everyday and Work chat history, attachments, and Liche's memories | **리체 설정 › 일반 › 초기화…** (Liche Settings › General › Reset…). A confirmation appears first. This cannot be undone |
 | JEV key | [Deleting a key](jev.md#deleting-a-key) |
 | All Liche data | Quit Liche and delete the data folders listed for [Windows](install-windows.md#6-uninstalling) or [macOS](install-mac.md#7-uninstalling) |
-| Data from earlier versions | [0.2.0 update guide](updates.md#cleaning-up-old-folders) |
+| Data from an earlier version (Windows 0.1.0) | [Cleaning up old folders](updates.md#cleaning-up-old-folders) |
 | Data held by an agent or TypeSafe AI | Follow that service's instructions and privacy policy |
