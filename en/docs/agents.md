@@ -32,9 +32,9 @@ The commands and requirements below were **checked against official documentatio
 
 ### Node.js and npm
 
-The Claude Code and Codex ACP adapters, and OpenClaw, require Node.js/npm. Install the version for your operating system from the [official Node.js download page](https://nodejs.org/en/download). npm is included. Also see the [official npm installation guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+The Claude Code and Codex connection tools (**연결 도구**: `claude-agent-acp`, `codex-acp`) and OpenClaw require Node.js/npm. Install the version for your operating system from the [official Node.js download page](https://nodejs.org/en/download). npm is included. Also see the [official npm installation guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-- The Claude ACP adapter requires Node.js 22 or later.
+- Claude Code's connection tool (`claude-agent-acp`) requires Node.js 22 or later.
 - The current OpenClaw release requires **24.x from 24.22.1 onward, or 26.12.1 or later**. We recommend Node.js 26.13.0 if you use several agents together.
 - Check your installation in Terminal (macOS) or PowerShell (Windows).
 
@@ -46,7 +46,7 @@ npm -v
 ### Claude Code + claude-agent-acp
 
 1. Follow the macOS or Windows steps in the [official Claude Code installation guide](https://code.claude.com/docs/en/setup). Open Claude Code and sign in.
-2. With Node.js/npm ready, install the ACP adapter.
+2. With Node.js/npm ready, install the connection tool (**연결 도구**).
 
 ```sh
 npm install -g @agentclientprotocol/claude-agent-acp
@@ -146,7 +146,7 @@ A response beginning with `Connected` means the connection succeeded. Liche will
 
 - **Chat:** Continue separate Everyday and Work conversations. Per-mode working folders are `~/Liche/<모드>` on macOS and `Documents\Liche\<모드>` on Windows.
 - **Approval requests:** Choose **승인** (Approve) or **거절** (Reject) before tool use. Liche does not approve automatically. See [Approval requests](#approval-requests) below.
-- **Long tool tasks:** While the agent uses tools, the two-minute "응답이 없어요" (No response) limit does not apply. Liche stops waiting only after 30 minutes without an update. The chat shows "작업 중이에요 · 경과 시간" (Working · elapsed time). See [Reply waiting times](first-run.md#reply-waiting-times).
+- **Long tool tasks:** While the agent uses tools, the two-minute reply limit does not apply. Liche stops waiting only after 30 minutes without an update. The chat shows "작업 중이에요 · 경과 시간" (Working · elapsed time). See [Reply waiting times](first-run.md#reply-waiting-times).
 - **Long replies:** Text is shown as the agent sends it. Even a long paragraph without blank lines appears line by line instead of all at once at the end.
 - **Liche's MCP server:** Agents can change expressions and actions and show short speech bubbles. This server cannot read chat history, settings, or keys.
 - **Models and thinking depth:** Choose each under **리체 설정 › 모드 › 일상(또는 업무) › 대화**. **에이전트 기본값** (Agent default) uses the agent's own value. What you can choose differs by agent. See [Models and thinking depth by agent](#models-and-thinking-depth-by-agent) below.
@@ -154,7 +154,7 @@ A response beginning with `Connected` means the connection succeeded. Liche will
 
 ## Approval requests
 
-When the agent asks before using a tool, such as editing files or running commands, the chat window shows **확인이 필요해요** (Your confirmation is needed) with **승인** (Approve) and **거절** (Reject).
+When the agent asks before using a tool, such as editing files or running commands, the chat window shows **승인이 필요해요** (Approval needed) with **승인** (Approve) and **거절** (Reject).
 
 - Liche answers with the option, among those the agent sent with its request, that allows or rejects **this one time only**. She never picks a lasting rule such as "always allow".
 - **■ 중지** (Stop) or a lost connection cancels all pending requests.

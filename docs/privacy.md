@@ -78,7 +78,7 @@ Claude Code, Codex, OpenClaw, Hermes 등은 **여러분의 컴퓨터에서 여�
 
 | 지우고 싶은 것 | 방법 |
 | --- | --- |
-| 일상·업무 대화 기록과 첨부, 리체의 추억 | **리체 설정 › 일반 › 초기화…**. 확인 창이 먼저 뜨며 되돌릴 수 없어요 |
+| 일상·업무 대화 기록과 첨부 | **리체 설정 › 일반 › 기록 폴더 › 폴더 열기**로 폴더를 연 뒤 리체를 끄고, `chat` 폴더의 `history-daily.jsonl`, `history-developer.jsonl`과 `attachments` 폴더를 지워요. 되돌릴 수 없어요. 에이전트가 기억하는 대화는 그 에이전트에서 지워요 |
 | JEV 키 | [키 지우기](jev.md#키-지우기) |
 | 리체의 모든 데이터 | 리체를 끈 뒤 [Windows](install-windows.md#6-제거하기) 또는 [macOS](install-mac.md#7-제거하기)의 데이터 폴더를 지워요 |
 | 이전 버전(Windows 0.1.0)의 데이터 | [이전 폴더 정리하기](updates.md#이전-폴더-정리하기) |
