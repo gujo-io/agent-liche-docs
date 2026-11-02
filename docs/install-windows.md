@@ -1,99 +1,107 @@
 # Windows 설치와 제거
 
-[안내서 처음으로](../README.md)
+[안내서 처음으로](../README.md) · [English](../en/docs/install-windows.md)
+
+> **지금 스토어에서 받는 Windows 파일은 0.1.0이에요.** 0.2.0은 macOS 판을 먼저 공개했고, Windows 판 0.2.0은 아직 공개하지 않았어요. 0.1.0의 설치와 사용은 [0.1.0 안내서의 Windows 설치](https://github.com/gujo-io/agent-liche-docs/blob/390cc92b9970fdc7c8191cf37b2a653edc4dce7d/docs/install-windows.md)를 봐 주세요. 이 페이지의 아래 내용은 Windows 0.2.0이 공개되면 적용돼요. 공개되면 [변경 기록](../CHANGELOG.md)과 이 페이지에 알려 드려요.
 
 ## 필요한 것
 
-- Windows 11 64비트 PC (Windows 10은 확인 중이에요)
-- DirectX 12를 지원하는 그래픽 카드
-- 내려받을 파일(약 430 MB)과 압축을 풀 저장 공간
-- 리체와 연결할 AI 에이전트 ([에이전트 연결](agents.md) 참고)
+- Windows 11 64비트(x64) PC. **Windows 10과 ARM 기반 Windows는 지원하지 않아요.**
+- DirectX 12(셰이더 모델 6)를 지원하는 그래픽 카드.
+- 메모리 16 GB를 권하고, 최소 8 GB가 필요해요.
+- 내려받은 zip 파일과 풀린 폴더를 함께 둘 여유 공간 1 GB 이상.
+- 별도로 설치하고 로그인한 AI 에이전트. [에이전트 연결](agents.md)을 참고해요.
 
 ## 1. 내려받기
 
-두 가지 방법 중 하나를 골라요.
+Gujo 스토어에 로그인한 뒤 라이브러리에서 Agent Liche의 Windows용 zip 파일을 내려받아요. Gujo Cloud Apps를 사용한다면 해당 상품의 설치 안내를 따라요.
 
-- **Gujo Cloud Apps로 설치하기:** Gujo Cloud Apps Windows 클라이언트에서 Agent Liche를 찾아 설치해요.
-- **zip 파일로 받기:** Gujo 스토어에 로그인한 뒤 라이브러리에서 Agent Liche의 zip 파일을 내려받아요.
+### 받은 파일 확인하기 (선택)
 
-zip 파일로 받았다면 압축을 풀어요.
+Windows 판은 코드 서명이 없어서, 받은 파일이 스토어가 배포한 파일과 같은지 직접 확인해 두면 좋아요. 파일마다의 이름, 크기, SHA-256 값은 [스토어 상품 페이지](https://app.gujo.io/products/287?lang=ko)의 **버전 기록**에 있어요.
 
-1. 내려받은 zip 파일을 오른쪽 클릭하고 **모두 압축 풀기...**를 골라요.
-2. 압축을 풀 폴더를 정해요. 예를 들어 `C:\Users\<사용자 이름>\AgentLiche`처럼 자주 옮기지 않을 폴더가 좋아요. "컴퓨터를 켜면 리체도 시작"을 켜면 리체가 실행 파일의 위치를 기억하기 때문이에요.
-3. **압축 풀기**를 눌러요.
+PowerShell에서 아래 명령을 실행하면 받은 파일의 SHA-256 값이 나와요(다른 폴더에 받았거나 파일 이름이 다르면 경로를 바꿔요). 상품 페이지의 값과 한 글자라도 다르면 실행하지 말고 고객지원에 알려 주세요.
 
-## 2. 처음 실행하기
+```powershell
+Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\Agent-Liche-0.2.0-windows.zip"
+```
 
-1. 압축을 푼 폴더 맨 위에 있는 실행 파일 `a001_Cartoon.exe`를 더블클릭해요. (확인 중: 판매 패키지의 실행 파일 이름은 바뀔 수 있어요)
-2. 잠시 뒤 바탕 화면에 리체가 있는 유리 카드가 나타나요. 카드 왼쪽에는 대화창이 붙어 있어요.
-3. 대화창의 안내에 따라 에이전트를 연결해요. 순서는 [처음 실행](first-run.md)에 있어요.
+## 2. 압축 풀기
+
+1. zip 파일을 오른쪽 클릭하고 **모두 압축 풀기…**를 골라요.
+2. 자주 옮기지 않을 폴더를 정하고 압축을 풀어요. 자동 시작은 실행 파일의 위치를 기억해요.
+3. **풀린 폴더 맨 위의 `AgentLiche.exe`와 그 옆의 `AgentLiche` 폴더를 함께 두세요.** 실행 파일 하나만 옮기면 실행되지 않아요.
+
+주요 파일은 이렇게 놓여 있어요. 이 밖에 엔진의 고지·파일 목록이 함께 들어 있어요.
+
+```text
+<압축을 푼 폴더>\
+├── AgentLiche.exe              리체를 시작하는 실행 파일 (이것을 더블클릭해요)
+├── THIRD-PARTY-NOTICES.txt     제3자 고지
+├── AgentLiche\
+│   └── Binaries\Win64\
+│       ├── AgentLiche-Win64-Shipping.exe   리체 캐릭터 프로그램
+│       ├── LicheInput.exe                  대화창 프로그램
+│       └── liche-judge.exe                 감정 판단(JEV) 프로그램
+└── Engine\                     엔진 파일
+```
+
+## 3. 처음 실행하기
+
+1. 맨 위의 **`AgentLiche.exe`**를 더블클릭해요. `AgentLiche\Binaries\Win64` 안의 파일을 찾아 실행할 필요는 없어요.
+2. **"Windows의 PC 보호"** 창이 뜨면 아래 [SmartScreen 안내](#windows의-pc-보호-창이-뜰-때-smartscreen)를 따라요.
+3. PC에 Visual C++ 런타임이 없으면 "The following component(s) are required to run this program … Would you like to install them now?"라는 창이 떠요. **예**를 누르면 패키지에 들어 있는 Microsoft Visual C++ 재배포 패키지가 설치돼요. 설치가 끝나면 리체가 이어서 시작해요.
+4. 바탕 화면에 유리 카드와 대화창이 나타나요.
+5. [처음 실행](first-run.md)에 따라 에이전트를 연결해요. 리체의 대답은 연결한 AI 에이전트가 만들어요.
 
 ### "Windows의 PC 보호" 창이 뜰 때 (SmartScreen)
 
-지금 판매하는 빌드는 코드 서명을 하지 않아서, 처음 실행할 때 Windows SmartScreen이 "알 수 없는 게시자"라고 알릴 수 있어요.
+**0.2.0 Windows 판은 코드 서명이 되어 있지 않아요.** 그래서 처음 실행할 때 Microsoft Defender SmartScreen이 "Windows의 PC 보호" 창을 띄우고, 게시자가 **알 수 없는 게시자**로 보여요. 코드 서명은 다음 업데이트에서 넣을 예정이에요.
 
-1. 파란 창 **Windows의 PC 보호**에서 **추가 정보**를 눌러요.
-2. 앱 이름과 "게시자: 알 수 없는 게시자"가 보이면 **실행**을 눌러요.
+1. Gujo 스토어에서 받은 파일인지 확인해요. 위의 [SHA-256 확인](#받은-파일-확인하기-선택)을 해 두면 더 확실해요.
+2. 창 안의 **추가 정보**를 눌러요.
+3. 앱 이름이 `AgentLiche.exe`인지 확인한 뒤 **실행**을 눌러요.
 
-이 창은 보통 처음 실행할 때 한 번만 떠요. 내려받은 파일이 스토어에서 받은 것이 맞는지 확인하고 싶으면 스토어 상품 페이지에 적힌 SHA-256 값과 비교해요.
+이 창이 다시 뜨면 같은 순서로 실행해요. 출처를 모르는 파일이거나 Microsoft Defender가 악성 파일로 탐지했다면 실행하지 말고 고객지원에 알려 주세요. SmartScreen이나 Microsoft Defender를 통째로 끄지 마세요.
 
-```powershell
-Get-FileHash "<내려받은 zip 파일 경로>" -Algorithm SHA256
-```
+Windows 보안의 **스마트 앱 컨트롤**이 켜진 PC에서는 **실행** 단추 없이 막힐 수 있어요. 스마트 앱 컨트롤을 끄는 것은 PC 전체의 보안 설정을 바꾸는 일이라 권하지 않아요. 이 경우 고객지원에 알려 주세요.
 
 ### 방화벽 창이 뜰 때
 
-처음 실행할 때 Windows Defender 방화벽이 "UnrealGame"의 네트워크 접근을 허용할지 물을 수 있어요. 리체는 다른 컴퓨터의 연결을 받을 필요가 없어서 **취소**를 눌러도 괜찮아요. 취소해도 에이전트와의 대화와 감정 판단(JEV)은 그대로 동작해요.
+판매용 리체 프로그램은 외부 연결을 받는 포트를 열지 않아요. 그래서 수신 연결을 허용할 필요가 없고, 정상이라면 Windows 방화벽 창이 뜨지 않아요. 리체의 방화벽 허용 창이 나오면 허용하지 말고 버전과 창의 내용을 고객지원에 알려 주세요. 별도로 설치한 에이전트가 묻는 창은 그 프로그램의 안내를 따라요. [외부 연결 목록](privacy.md#바깥에-연결하는-경우)을 참고해요.
 
-## 3. 끄기
+## 4. 끄기
 
-- 작업 표시줄에서 리체 단추를 Shift를 누른 채 오른쪽 클릭하면 창 메뉴가 열려요. 여기서 **닫기**를 골라요. 리체 카드를 한 번 누른 뒤 `Alt+Space`를 눌러도 같은 메뉴가 열려요. (확인 중)
-- 위 방법으로 꺼지지 않으면 작업 관리자(`Ctrl+Shift+Esc`)를 열고 리체 프로그램(`a001_Cartoon`)을 골라 **작업 끝내기**를 눌러요.
-- 대화창 프로그램(`LicheInput`)은 리체가 꺼지면 스스로 꺼져요.
+- 리체 카드를 누른 뒤 `Alt+Space`를 눌러 창 메뉴를 열고 **닫기**를 골라요. 작업 표시줄의 리체 단추를 `Shift`를 누른 채 오른쪽 클릭해도 같은 창 메뉴가 열려요.
+- 꺼지지 않으면 작업 관리자(`Ctrl+Shift+Esc`)의 **세부 정보**에서 `AgentLiche-Win64-Shipping.exe`를 골라 **작업 끝내기**를 눌러요. **프로세스** 탭에는 시작 파일, 캐릭터 프로그램, 대화창 프로그램이 모두 Agent Liche로 보여요.
+- 대화창 프로그램 `LicheInput.exe`는 리체가 꺼지면 함께 꺼져요.
 
-## 4. 로그인할 때 자동으로 켜기
+## 5. 로그인할 때 자동으로 켜기
 
-**리체 설정 › 일반 › 시작**에서 **컴퓨터를 켜면 리체도 시작**을 켜요. 그러면 Windows 시작 프로그램 폴더에 `Agent Liche Auto Connect.lnk` 바로 가기가 생기고, 로그인할 때 리체와 저장된 연결이 함께 켜져요.
+**리체 설정 › 일반 › 컴퓨터를 켜면 리체도 시작**을 켜요. 시작 프로그램 폴더에 `Agent Liche Auto Connect.lnk`가 생기고, 로그인할 때 리체와 저장된 연결이 함께 켜져요.
 
-- 리체 폴더를 옮겼거나 새 버전으로 바꿨다면 이 스위치를 한 번 껐다가 다시 켜요. 바로 가기가 예전 위치를 가리키면 설정 창에 "시작 항목이 다른 폴더의 리체를 가리켜요. 껐다 켜면 지금 리체로 바뀌어요."라고 나와요.
-- 리체는 이 바로 가기 하나만 만들고 지워요. 다른 시작 프로그램은 건드리지 않아요.
+폴더를 옮기거나 버전을 바꿨다면 스위치를 껐다가 다시 켜요. 리체는 이 바로 가기 하나만 바꾸고 다른 시작 프로그램은 건드리지 않아요.
 
-## 5. 제거하기
+## 6. 제거하기
 
-리체는 설치 프로그램 없이 폴더째 동작해요. 그래서 **설정 › 앱**의 목록에는 나오지 않고, 아래 순서대로 직접 지워요. Gujo Cloud Apps로 설치했다면 먼저 그 클라이언트에서 제거해요. (확인 중: 클라이언트가 지우는 범위)
+zip으로 설치한 리체는 폴더째 지워요. 설치 프로그램이 없어서 **설정 › 앱** 목록에는 나오지 않아요. Gujo Cloud Apps로 설치했다면 먼저 그 클라이언트에서 제거하고, 아래 데이터 폴더가 남아 있으면 직접 지워요.
 
-1. **자동 시작 끄기:** 리체가 켜져 있을 때 **리체 설정 › 일반 › 컴퓨터를 켜면 리체도 시작**을 꺼요. 이미 리체를 지웠다면 `Win+R`을 누르고 `shell:startup`을 입력해 시작 프로그램 폴더를 연 뒤 `Agent Liche Auto Connect.lnk`를 지워요.
-2. **감정 판단 키 지우기 (선택):** JEV 키를 넣었다면 키 창에서 **키 지우기**를 눌러요. 아래 3단계에서 데이터 폴더를 지워도 키 파일이 함께 지워져요.
-3. **리체 끄기:** 위 "끄기"대로 리체를 꺼요.
-4. **프로그램 폴더 지우기:** 압축을 푼 폴더를 통째로 지워요.
-5. **데이터 폴더 지우기:** 아래 표의 폴더를 지워요. 대화 기록과 설정을 남기고 싶으면 먼저 다른 곳에 복사해 두세요.
+1. 리체가 켜져 있을 때 **컴퓨터를 켜면 리체도 시작**을 꺼요. 이미 앱을 지웠다면 `Win+R`에서 `shell:startup`을 열고 `Agent Liche Auto Connect.lnk`를 지워요.
+2. JEV 키를 지우려면 키 창의 **키 지우기**를 눌러요. 아래 `%LOCALAPPDATA%\LicheWidget` 폴더를 지워도 키 파일이 함께 지워져요.
+3. 리체를 끄고 압축을 풀었던 폴더를 통째로 지워요.
+4. 필요한 파일을 먼저 복사한 뒤 아래 데이터 폴더를 지워요. **지운 대화와 직접 만든 파일은 되돌릴 수 없어요.**
 
 | 위치 | 들어 있는 것 |
 | --- | --- |
-| `%LOCALAPPDATA%\LicheWidget` | 두 모드의 대화 기록과 첨부 복사본, 연결 설정, 화면·알림·성능 설정, 카드 위치와 크기(`transparent-window.json`), 감정 판단 키(`chat\judge\typesafe.dpapi`)와 상태, 진단 기록(`logs`), 시작 프로그램 바로 가기 백업 |
-| `문서\LicheWidget` | 위젯 설정 파일 `settings.json`과 설명·오류 파일 |
-| `문서\Liche` | 여러분이 쓴 지침 파일(`common.md`, `daily`, `developer`)과 에이전트가 모드별로 일하는 폴더. 직접 만든 파일이 들어 있을 수 있으니 확인한 뒤 지워요 |
-| 시작 프로그램 폴더의 `Agent Liche Auto Connect.lnk` | 로그인할 때 리체를 켜는 바로 가기 (1단계에서 지움) |
+| `%LOCALAPPDATA%\LicheWidget` | 대화 기록(`chat\history-daily.jsonl`, `chat\history-developer.jsonl`)과 첨부, 저장한 연결(`chat\connection.json`), 화면·알림·성능 설정, 카드 위치, JEV 키(`chat\judge\typesafe.dpapi`), 로그(`logs`) |
+| `문서\LicheWidget` | 위젯 설정 `settings.json`과 오류 기록(`settings.error.txt`, `input.error.txt`) |
+| `문서\Liche` | 지침 파일(`common.md`, `daily\daily.md`, `developer\developer.md`)과 모드별 에이전트 작업 폴더. 직접 만든 파일이 있는지 먼저 확인해요 |
+| `%LOCALAPPDATA%\AgentLiche\Saved` | 엔진(Unreal Engine)의 설정·셰이더 캐시·오류 보고서 |
+| 바탕 화면의 `Liche-diagnostics-….zip` | **진단 파일 만들기**로 만든 파일이 있다면 |
 
-이전 버전(0.1.0 등)을 쓴 적이 있으면 이름에 `Lize`가 들어간 폴더도 남아 있을 수 있어요. 새 버전은 이 폴더를 읽지 않으니 함께 지워도 돼요.
+`Win+R`에서 `%LOCALAPPDATA%`를 입력하면 해당 폴더가 열려요. **문서**는 탐색기 왼쪽의 문서 폴더이며 OneDrive 안에 있을 수도 있어요. 이전 버전의 `LizeWidget`, `Lize` 폴더는 [업데이트 안내](updates.md#이전-폴더-정리하기)에 따라 따로 정리해요.
 
-| 이전 버전의 위치 | 들어 있는 것 |
-| --- | --- |
-| `%LOCALAPPDATA%\LizeWidget` | 이전 버전의 대화 기록, 설정, 카드 위치 |
-| `문서\LizeWidget` | 이전 버전의 위젯 설정 파일 |
-| `문서\Lize` | 이전 버전의 지침 파일 |
-
-`문서` 폴더는 탐색기 왼쪽의 **문서**예요. OneDrive가 문서 폴더를 백업하고 있으면 실제 위치가 OneDrive 안일 수 있어요.
-
-PowerShell로 한 번에 지우려면 리체를 끈 뒤 아래 명령을 실행해요. 지침 폴더(`문서\Liche`)는 직접 쓴 파일이 있을 수 있어서 명령에 넣지 않았어요.
-
-```powershell
-$docs = [Environment]::GetFolderPath('MyDocuments')
-Remove-Item -Recurse -Force "$env:LOCALAPPDATA\LicheWidget", "$docs\LicheWidget" -ErrorAction SilentlyContinue
-Remove-Item -Force "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\Agent Liche Auto Connect.lnk" -ErrorAction SilentlyContinue
-```
-
-연결한 에이전트(Claude Code, Codex, OpenClaw, Hermes 등)는 리체와 따로 설치한 프로그램이에요. 리체를 지워도 에이전트와 그 설정은 남아 있어요.
+연결한 에이전트는 별도 프로그램이어서 리체를 지워도 그 프로그램과 데이터는 남아요.
 
 ## 다음 단계
 
