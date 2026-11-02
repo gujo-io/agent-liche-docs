@@ -11,6 +11,7 @@ Agent Liche의 버전마다 달라진 점을 적어요. 새 버전으로 바꾸�
 - **처음 설치처럼 시작해요.** 앱과 내부 이름을 Agent Liche에 맞췄어요. 설정, 대화 기록, 배치, 에이전트 연결은 새로 시작하고 이전 데이터는 이전 폴더에 남아요. [이전 폴더와 정리 방법](docs/updates.md#이전-폴더-정리하기)을 먼저 읽어 주세요.
 - **Windows:** 압축을 푼 폴더 맨 위의 **`AgentLiche.exe`**로 시작해요. 옆의 **`AgentLiche`** 폴더도 함께 두세요. Windows 11 64비트(x64)를 지원해요. **0.2.0 Windows 판은 코드 서명이 없어서** 처음 실행할 때 SmartScreen 창이 떠요. **추가 정보 › 실행**을 눌러요. 코드 서명은 다음 업데이트에서 넣어요.
 - **macOS:** **`Agent Liche.app`**이며 macOS 14 이상의 **Apple Silicon Mac만** 지원해요. Developer ID로 서명하고 Apple 공증을 받아서, 처음 열 때 인터넷에서 받은 앱을 열지 묻는 확인 창만 떠요.
+- **파일:** `Agent-Liche-0.2.0-windows.zip`(빌드 2026.1102.0830), `Agent-Liche-0.2.0-mac.zip`(빌드 2026.1102.0834). 크기와 SHA-256은 [Windows 설치](docs/install-windows.md#받은-파일-확인하기-선택)와 [macOS 설치](docs/install-mac.md#받은-파일-확인하기-선택)에 있어요.
 
 ### 대화와 리체의 반응
 

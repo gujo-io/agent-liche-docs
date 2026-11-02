@@ -12,18 +12,20 @@
 
 ## 1. Downloading
 
-Sign in to the Gujo store and download the macOS zip from your library. Double-click it to extract **`Agent Liche.app`**. The same product purchase includes both Windows and macOS files.
+Sign in to the Gujo store and download the macOS zip (`Agent-Liche-0.2.0-mac.zip`) from your library. Double-click it in Finder to extract **`Agent Liche.app`**. The same product purchase includes both Windows and macOS files.
+
+If you extract it with another archive app or the `unzip` command, a `__MACOSX` folder may appear next to the app. It only holds information macOS attached to the files, so you can delete it. Double-clicking in Finder (Archive Utility) does not create it.
 
 ### Checking your download (optional)
 
 | File | Size (bytes) | SHA-256 |
 | --- | --- | --- |
-| `RELEASE_FILL_MAC_ZIP_NAME` | `RELEASE_FILL_MAC_ZIP_BYTES` | `RELEASE_FILL_MAC_ZIP_SHA256` |
+| `Agent-Liche-0.2.0-mac.zip` | `516,489,609` | `bd71fad86976b74c50951f5c87a7052f6df142d6e131661d8d77ec3c925f5ac1` |
 
-Replace the file name in this Terminal command to get its SHA-256. If it differs from the table, do not open the app. Contact support.
+Run this command in Terminal to get its SHA-256 (change the path if you saved it elsewhere). If it differs from the table, do not open the app. Contact support.
 
 ```sh
-shasum -a 256 ~/Downloads/<downloaded zip file name>
+shasum -a 256 ~/Downloads/Agent-Liche-0.2.0-mac.zip
 ```
 
 ## 2. Moving to Applications

@@ -154,7 +154,7 @@ The update that renames Lize to Liche starts like a fresh installation. Old hist
 ## What to include when contacting support
 
 - Operating system and version, such as Windows 11 24H2 or macOS 26.5
-- Version line under **리체 설정 › 리체 정보** (Liche Settings › About Liche), such as `버전 0.2.0 (2026.11.02 · abc1234)` (Version 0.2.0 (2026.11.02 · abc1234))
+- Version line under **리체 설정 › 리체 정보** (Liche Settings › About Liche), such as `버전 0.2.0 (2026.11.02 · a2b5fea)` (Version 0.2.0 (2026.11.02 · a2b5fea))
 - Connected agent and its version
 - What you did, what happened, and the exact wording shown on-screen
 - If possible, attach the desktop `Liche-diagnostics-날짜-시각.zip` made with **리체 설정 › 리체 정보 › 진단 파일 만들기** (Liche Settings › About Liche › Create diagnostic file). It contains logs, settings, recent crash reports, version, and display information. It excludes chat history, attachments, JEV key files, and memory dumps. It redacts chat text, keys, tokens, and user paths in logs. It is not sent automatically. **Open and check it yourself** before sending.

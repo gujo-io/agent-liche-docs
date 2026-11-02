@@ -11,7 +11,7 @@
 
 ## 1. Downloading
 
-Sign in to the Gujo store and download the Windows zip for Agent Liche from your library. If you use Gujo Cloud Apps, follow the installation instructions for this product.
+Sign in to the Gujo store and download the Windows zip for Agent Liche (`Agent-Liche-0.2.0-windows.zip`) from your library. If you use Gujo Cloud Apps, follow the installation instructions for this product.
 
 ### Checking your download (optional)
 
@@ -19,12 +19,12 @@ The 0.2.0 Windows release is not code-signed. The size and SHA-256 below let you
 
 | File | Size (bytes) | SHA-256 |
 | --- | --- | --- |
-| `RELEASE_FILL_WINDOWS_ZIP_NAME` | `RELEASE_FILL_WINDOWS_ZIP_BYTES` | `RELEASE_FILL_WINDOWS_ZIP_SHA256` |
+| `Agent-Liche-0.2.0-windows.zip` | `290,911,096` | `7455eb5882bd311f28139f69867a262939245e05e5fd6432adbeff3e2e230a6c` |
 
-Replace the file name in this PowerShell command to get its SHA-256. If even one character differs from the table, do not run the file. Contact support.
+Run this PowerShell command to get its SHA-256 (change the path if you saved it elsewhere). If even one character differs from the table, do not run the file. Contact support.
 
 ```powershell
-Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\<downloaded zip file name>"
+Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\Agent-Liche-0.2.0-windows.zip"
 ```
 
 ## 2. Extracting
@@ -33,7 +33,7 @@ Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\<downloaded zip file 
 2. Extract it to a folder you will not move often. Automatic startup remembers the executable's location.
 3. **Keep `AgentLiche.exe` at the top of the extracted folder together with the `AgentLiche` folder beside it.** Moving only the executable prevents the app from running.
 
-The folder looks like this.
+The main files sit like this. The folder also holds the engine's notices and file lists.
 
 ```text
 <extracted folder>\

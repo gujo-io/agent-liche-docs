@@ -9,6 +9,7 @@ Liche tells you when a new version is available, but does not download or instal
 - Enabled by default. Checks a small version information file on GitHub once a day. Also checks when you open **리체 정보** (About Liche), up to once every 10 minutes.
 - When a new version is available, **리체 설정 › 리체 정보** (Liche Settings › About Liche) shows **새 버전이 있어요** (A new version is available), **바뀐 점 ›** (What's changed ›), and **받으러 가기 ›** (Go to download ›). **새 버전이 있어요** also appears below About Liche in the sidebar.
 - To disable this, turn off **리체 설정 › 리체 정보 › 업데이트 › 새 버전 알림** (Liche Settings › About Liche › Updates › New version notifications). The version information file is not fetched when disabled.
+- A failed check opens no window and sends no notification. Only while no answer has been received yet, the **새 버전 알림** row reads "확인하지 못했어요. 인터넷 연결을 확인해 주세요." (Could not check. Please check your internet connection.), and the next check tries again.
 - This check sends your IP address to GitHub (`raw.githubusercontent.com`). It does not send conversations, account information, or device identifiers. See [Privacy and data](privacy.md).
 
 ## How long you can receive updates
@@ -22,6 +23,11 @@ The exact conditions follow the [store product page](https://asset.gujo.io/produ
 ## Checking your current version
 
 Find the version and build information under **리체 설정 › 리체 정보**. Include this information when contacting support.
+
+| 0.2.0 | Version line in About Liche | Build number |
+| --- | --- | --- |
+| macOS | `버전 0.2.0 (2026.11.02 · a2b5fea)` | `2026.1102.0834` (Finder's Get Info, About Agent Liche in the app menu) |
+| Windows | `버전 0.2.0 (2026.11.02 · a2b5fea)` | `2026.1102.0830` |
 
 ## Updating on Windows
 

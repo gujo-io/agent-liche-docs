@@ -11,7 +11,7 @@
 
 ## 1. 내려받기
 
-Gujo 스토어에 로그인한 뒤 라이브러리에서 Agent Liche의 Windows용 zip 파일을 내려받아요. Gujo Cloud Apps를 사용한다면 해당 상품의 설치 안내를 따라요.
+Gujo 스토어에 로그인한 뒤 라이브러리에서 Agent Liche의 Windows용 zip 파일(`Agent-Liche-0.2.0-windows.zip`)을 내려받아요. Gujo Cloud Apps를 사용한다면 해당 상품의 설치 안내를 따라요.
 
 ### 받은 파일 확인하기 (선택)
 
@@ -19,12 +19,12 @@ Gujo 스토어에 로그인한 뒤 라이브러리에서 Agent Liche의 Windows�
 
 | 파일 | 크기(바이트) | SHA-256 |
 | --- | --- | --- |
-| `RELEASE_FILL_WINDOWS_ZIP_NAME` | `RELEASE_FILL_WINDOWS_ZIP_BYTES` | `RELEASE_FILL_WINDOWS_ZIP_SHA256` |
+| `Agent-Liche-0.2.0-windows.zip` | `290,911,096` | `7455eb5882bd311f28139f69867a262939245e05e5fd6432adbeff3e2e230a6c` |
 
-PowerShell에서 아래 명령의 파일 이름을 바꿔 실행하면 SHA-256 값이 나와요. 위 표의 값과 한 글자라도 다르면 실행하지 말고 고객지원에 알려 주세요.
+PowerShell에서 아래 명령을 실행하면 SHA-256 값이 나와요(다른 폴더에 받았다면 경로를 바꿔요). 위 표의 값과 한 글자라도 다르면 실행하지 말고 고객지원에 알려 주세요.
 
 ```powershell
-Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\<받은 zip 파일 이름>"
+Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\Agent-Liche-0.2.0-windows.zip"
 ```
 
 ## 2. 압축 풀기
@@ -33,7 +33,7 @@ Get-FileHash -Algorithm SHA256 "$env:USERPROFILE\Downloads\<받은 zip 파일 �
 2. 자주 옮기지 않을 폴더를 정하고 압축을 풀어요. 자동 시작은 실행 파일의 위치를 기억해요.
 3. **풀린 폴더 맨 위의 `AgentLiche.exe`와 그 옆의 `AgentLiche` 폴더를 함께 두세요.** 실행 파일 하나만 옮기면 실행되지 않아요.
 
-폴더 안은 이렇게 생겼어요.
+주요 파일은 이렇게 놓여 있어요. 이 밖에 엔진의 고지·파일 목록이 함께 들어 있어요.
 
 ```text
 <압축을 푼 폴더>\

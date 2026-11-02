@@ -11,6 +11,7 @@ This page lists changes in each version of Agent Liche. See [Updating](docs/upda
 - **Starts like a fresh installation.** The app and internal names now match Agent Liche. Settings, chat history, layout, and agent connections start fresh. Old data stays in the old folders. Read [Cleaning up old folders](docs/updates.md#cleaning-up-old-folders) first.
 - **Windows:** Launch **`AgentLiche.exe`** at the top of the extracted folder. Keep the **`AgentLiche`** folder beside it. Windows 11 64-bit (x64) is supported. **The 0.2.0 Windows release is not code-signed**, so SmartScreen appears on first launch. Click **More info › Run anyway** (on Korean Windows, **추가 정보 › 실행**). Code signing will be added in the next update.
 - **macOS:** The app is **`Agent Liche.app`** and supports **only Apple Silicon Macs** running macOS 14 or later. It is Developer ID signed and notarized by Apple. On first launch, you only see the confirmation asking whether to open an app downloaded from the Internet.
+- **Files:** `Agent-Liche-0.2.0-windows.zip` (build 2026.1102.0830) and `Agent-Liche-0.2.0-mac.zip` (build 2026.1102.0834). Sizes and SHA-256 values are in [Windows installation](docs/install-windows.md#checking-your-download-optional) and [macOS installation](docs/install-mac.md#checking-your-download-optional).
 
 ### Chat and Liche's reactions
 

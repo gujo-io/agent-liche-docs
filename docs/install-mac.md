@@ -12,18 +12,20 @@
 
 ## 1. 내려받기
 
-Gujo 스토어에 로그인한 뒤 라이브러리에서 macOS용 zip 파일을 내려받아요. 더블클릭해 풀면 **`Agent Liche.app`**이 생겨요. 같은 상품 구매에 Windows와 macOS 파일이 모두 포함돼요.
+Gujo 스토어에 로그인한 뒤 라이브러리에서 macOS용 zip 파일(`Agent-Liche-0.2.0-mac.zip`)을 내려받아요. Finder에서 더블클릭해 풀면 **`Agent Liche.app`**이 생겨요. 같은 상품 구매에 Windows와 macOS 파일이 모두 포함돼요.
+
+다른 압축 프로그램이나 `unzip` 명령으로 풀면 `__MACOSX` 폴더가 함께 생길 수 있어요. macOS가 파일에 붙여 둔 정보만 들어 있는 폴더라 지워도 돼요. Finder의 더블클릭(아카이브 유틸리티)으로 풀면 생기지 않아요.
 
 ### 받은 파일 확인하기 (선택)
 
 | 파일 | 크기(바이트) | SHA-256 |
 | --- | --- | --- |
-| `RELEASE_FILL_MAC_ZIP_NAME` | `RELEASE_FILL_MAC_ZIP_BYTES` | `RELEASE_FILL_MAC_ZIP_SHA256` |
+| `Agent-Liche-0.2.0-mac.zip` | `516,489,609` | `bd71fad86976b74c50951f5c87a7052f6df142d6e131661d8d77ec3c925f5ac1` |
 
-터미널에서 아래 명령의 파일 이름을 바꿔 실행하면 SHA-256 값이 나와요. 위 표의 값과 다르면 열지 말고 고객지원에 알려 주세요.
+터미널에서 아래 명령을 실행하면 SHA-256 값이 나와요(다른 폴더에 받았다면 경로를 바꿔요). 위 표의 값과 다르면 열지 말고 고객지원에 알려 주세요.
 
 ```sh
-shasum -a 256 ~/Downloads/<받은 zip 파일 이름>
+shasum -a 256 ~/Downloads/Agent-Liche-0.2.0-mac.zip
 ```
 
 ## 2. 응용 프로그램 폴더로 옮기기
