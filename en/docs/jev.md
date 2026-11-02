@@ -91,7 +91,7 @@ The current status appears below this row.
 | --- | --- |
 | **켜져 있어요** (Enabled) | Emotion judgment is working |
 | **꺼져 있어요** (Disabled) | A key is saved, but the feature is off |
-| **키를 넣으면 켤 수 있어요** (Enter a key to enable) | No key is saved yet |
+| **키를 넣으면 켤 수 있어요** (Enter a key to enable) | No key is saved yet, also after you remove the key. The switch shows off, and pressing it opens the key window |
 | **문제가 있어요** (There is a problem) | The key was rejected or the server could not be reached. Try saving the key again |
 | **이 연결에서는 쓸 수 없어요** (Unavailable with this connection) | Emotion judgment cannot be used with the current connection |
 | **준비 중** (Preparing) | The chat window program has not sent emotion judgment information yet |

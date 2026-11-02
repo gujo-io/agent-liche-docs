@@ -10,7 +10,7 @@ Liche's replies come from the connected agent, so she cannot answer without one.
 
 - Liche does not doze because time has passed. She dozes only when there is no connection or the connection is lost.
 - Click her while she is dozing to wake her briefly. She then dozes again.
-- If your connected agent does not respond, a gray **연결 안 됨** (Not connected) appears near the bottom of the card.
+- If your connected agent does not respond, a gray **연결 안 됨 — 지금은 보낼 수 없어요** (Not connected — can't send right now) appears at the bottom of the chat window, above the input box. The card shows no status text: Liche dozes with Zz above her head. While she waits for a reply, a thought bubble floats above her head.
 
 ## macOS: full-screen first-run setup
 
@@ -81,7 +81,7 @@ If there is no chat history, Liche speaks first. Write in the input field at the
 | Pin Liche above other windows | Click **고정핀** (Pin) among the unfolded icons. Click again to unpin |
 | Move the card | Drag the **위치이동** (Move) icon. You can also hold `⌥` (macOS) or `Alt` (Windows) and drag anywhere on the card where Liche is visible |
 | Resize the card | Drag inside a rounded corner of the glass card. Size ranges from 60% to 160%. Right-click while dragging to cancel. After releasing, briefly visible **100%로** (Reset to 100%) restores the original size |
-| Detach or attach the chat window | Use the attach/detach button in the chat header, or choose under **리체 설정 › 창 › 대화창 배치** (Liche Settings › Window › Chat layout). The same area also has **대화창 스타일** (Chat window style): Floating or a bordered classic window |
+| Detach or attach the chat window | Use the attach/detach button in the chat header, or choose under **리체 설정 › 창 › 대화창 배치** (Liche Settings › Window › Chat layout). The same area also has **대화창 스타일** (Chat window style): **떠 있는 창** (floating window) or a bordered classic window |
 | Open settings | Click **설정** (Settings), the gear among the unfolded icons, to open **리체 설정** (Liche Settings). The gear in the chat header goes directly to model and thinking-depth settings for the current mode |
 | Switch between Everyday and Work | Click the speech-bubble icon (Everyday) or the `</>` icon (Work) at the top of the chat window |
 | Find a lost card | Click **옮기기** (Move) under **리체 설정 › 창 › 카드를 화면 가운데로** (Liche Settings › Window › Center card on screen). See [Troubleshooting](troubleshooting.md) |

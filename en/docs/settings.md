@@ -19,7 +19,7 @@ The card at the top of the sidebar shows the connected agent and status, such as
 | Option | Description |
 | --- | --- |
 | **연결 설정 열기** (Open connection settings) | Opens agent selection. On macOS, this is the connection step of first-run setup. On Windows, it opens **연결 설정** (Connection settings). Connection problems appear below the card |
-| **선택 기능 › 감정 판단 (JEV) · 선택** (Optional features › Emotion judgment (JEV) · Optional) | Uses the conversation to choose Liche's emotions and reaction strength. Enable or disable it with the switch on the right, and open the key window with **키 입력 ›** (Enter key ›). When enabled, part of your conversation goes to TypeSafe AI in the United States. You need your own JEV key and separate credits. Only input tokens are charged. **자세히 ›** (Details ›) opens [Emotion judgment (JEV)](jev.md) |
+| **선택 기능 › 감정 판단 (JEV) · 선택** (Optional features › Emotion judgment (JEV) · Optional) | Uses the conversation to choose Liche's emotions and reaction strength. Enable or disable it with the switch on the right, and open the key window with **키 입력 ›** (Enter key ›). Without a key the switch shows off, and pressing it opens the key window. When enabled, part of your conversation goes to TypeSafe AI in the United States. You need your own JEV key and separate credits. Only input tokens are charged. **자세히 ›** (Details ›) opens [Emotion judgment (JEV)](jev.md) |
 
 If the chat window program is not running, the card shows **리체 대화 꺼짐** (Liche chat is off). See [Troubleshooting](troubleshooting.md).
 
@@ -91,10 +91,10 @@ Text size is independent of card size. Enlarging the card does not enlarge the t
 | --- | --- | --- |
 | **창** (Window) | **항상 위** (Always on top) | Pins Liche above other windows. Same as the widget's pin |
 | **창** | **카드를 화면 가운데로** (Center card on screen) | If the card is off-screen or hard to reach behind a menu bar or taskbar, moves it at its current size to the center of the display containing the pointer. Use **옮기기** (Move) |
-| **대화창** (Chat window) | **대화창 스타일** (Chat window style) | Choose **Floating** (a floating chat window matching the glass card) or a bordered **클래식 창** (Classic window) |
-| **대화창** | **Beside the character** | In Floating, attaches the chat on the left and character on the right, side by side. In the classic window, the selection is remembered but inactive |
+| **대화창** (Chat window) | **대화창 스타일** (Chat window style) | Choose **떠 있는 창** (Floating window: a floating chat window matching the glass card) or a bordered **클래식 창** (Classic window) |
+| **대화창** | **캐릭터 옆에 두기** (Beside the character) | In the floating window, attaches the chat on the left and character on the right, side by side. In the classic window, the selection is remembered but inactive |
 | **대화창** | **대화창 배치** (Chat layout) | **붙이기** (Attach) attaches chat to the glass panel beside the character. **떼기** (Detach) lets you move and resize chat separately. The classic window is always detached. Same as the chat-header button |
-| **작업 방해 줄이기** (Reduce interruptions) | **커서가 가까이 오면 흐리게** (Fade when the pointer approaches) | With the pin enabled, the card fades as the pointer approaches, and clicks pass through to the window behind it. Hold `Ctrl` (`⌥` on macOS) while approaching to interact immediately, even while faded |
+| **작업 방해 줄이기** (Reduce interruptions) | **커서가 가까이 오면 흐리게** (Fade when the pointer approaches) | With the pin enabled, the card fades as the pointer approaches, and clicks pass through to the window behind it. Hold the `Ctrl` key (Windows) or the `Option` (`⌥`) key (macOS) while approaching to interact immediately, even while faded. **Caution:** if the desktop is behind the faded card, a click reaches the desktop. On macOS with **System Settings › Desktop & Dock › Click wallpaper to show desktop** set to **Always**, your windows move aside. To click the card, approach it holding `Option`, release the key once the card is solid again, then click |
 | **작업 방해 줄이기** | **흐려졌을 때 남는 진하기** (Opacity while faded) | Sets how visible Liche remains while faded |
 | **작업 방해 줄이기** | **전체 화면 앱이나 게임을 쓸 땐 숨기기** (Hide during full-screen apps or games) | Hides Liche when another app uses her monitor full-screen, then shows her again afterward. On by default |
 
