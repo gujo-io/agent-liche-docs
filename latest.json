@@ -4,14 +4,16 @@
   "download_url": "https://asset.gujo.io/products/287?lang=ko",
   "files": {
     "windows-x64": {
-      "name": "RELEASE_FILL_WINDOWS_ZIP_NAME",
-      "size_bytes": "RELEASE_FILL_WINDOWS_ZIP_BYTES",
-      "sha256": "RELEASE_FILL_WINDOWS_ZIP_SHA256"
+      "name": "Agent-Liche-0.2.0-windows.zip",
+      "size_bytes": 290911096,
+      "sha256": "7455eb5882bd311f28139f69867a262939245e05e5fd6432adbeff3e2e230a6c",
+      "build": "2026.1102.0830"
     },
     "macos-arm64": {
-      "name": "RELEASE_FILL_MAC_ZIP_NAME",
-      "size_bytes": "RELEASE_FILL_MAC_ZIP_BYTES",
-      "sha256": "RELEASE_FILL_MAC_ZIP_SHA256"
+      "name": "Agent-Liche-0.2.0-mac.zip",
+      "size_bytes": 516489609,
+      "sha256": "bd71fad86976b74c50951f5c87a7052f6df142d6e131661d8d77ec3c925f5ac1",
+      "build": "2026.1102.0834"
     }
   }
 }
