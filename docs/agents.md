@@ -32,9 +32,9 @@
 
 ### Node.js와 npm
 
-Claude Code·Codex의 ACP 어댑터와 OpenClaw는 Node.js/npm이 필요해요. [Node.js 공식 다운로드](https://nodejs.org/en/download)에서 운영체제에 맞게 설치해요. npm도 함께 설치돼요. [npm 공식 설치 안내](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)도 참고해요.
+Claude Code·Codex의 연결 도구(`claude-agent-acp`, `codex-acp`)와 OpenClaw는 Node.js/npm이 필요해요. [Node.js 공식 다운로드](https://nodejs.org/en/download)에서 운영체제에 맞게 설치해요. npm도 함께 설치돼요. [npm 공식 설치 안내](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)도 참고해요.
 
-- Claude ACP 어댑터는 Node.js 22 이상이 필요해요.
+- Claude Code의 연결 도구(`claude-agent-acp`)는 Node.js 22 이상이 필요해요.
 - 현재 OpenClaw 배포본은 **24.22.1 이상 24.x 또는 26.12.1 이상**이 필요해요. 여러 에이전트를 함께 쓴다면 Node.js 26.13.0을 권해요.
 - 설치 확인은 터미널(macOS) 또는 PowerShell(Windows)에서 해요.
 
@@ -46,7 +46,7 @@ npm -v
 ### Claude Code + claude-agent-acp
 
 1. [Claude Code 공식 설치 안내](https://code.claude.com/docs/en/setup)에서 macOS 또는 Windows용 설치 방법을 따라요. Claude Code를 열어 로그인해요.
-2. Node.js/npm을 준비한 뒤 ACP 어댑터를 설치해요.
+2. Node.js/npm을 준비한 뒤 연결 도구를 설치해요.
 
 ```sh
 npm install -g @agentclientprotocol/claude-agent-acp
@@ -146,7 +146,7 @@ python -c "import pm; pm.sync_venv(['acp'], explicit=True)"
 
 - **대화:** 일상·업무 대화를 따로 이어 가요. 모드별 작업 폴더는 macOS `~/Liche/<모드>`, Windows `문서\Liche\<모드>`예요.
 - **승인 요청:** 도구 사용 전에 **승인** 또는 **거절**을 골라요. 리체는 자동 승인하지 않아요. 아래 [승인 요청](#승인-요청)을 봐요.
-- **오래 걸리는 도구 작업:** 에이전트가 도구를 쓰는 동안에는 2분 "응답이 없어요" 제한이 없고, 아무 소식 없이 30분이 지날 때만 기다리기를 멈춰요. 대화창에는 "작업 중이에요 · 경과 시간"이 보여요 ([답을 기다리는 시간](first-run.md#답을-기다리는-시간)).
+- **오래 걸리는 도구 작업:** 에이전트가 도구를 쓰는 동안에는 2분 제한이 없고, 아무 소식 없이 30분이 지날 때만 기다리기를 멈춰요. 대화창에는 "작업 중이에요 · 경과 시간"이 보여요 ([답을 기다리는 시간](first-run.md#답을-기다리는-시간)).
 - **긴 답:** 에이전트가 글을 보내는 대로 보여 줘요. 빈 줄 없이 긴 문단도 다 끝날 때까지 기다리지 않고 줄 단위로 이어서 보여 줘요.
 - **리체의 MCP 서버:** 표정·동작과 짧은 말풍선을 바꿀 수 있어요. 이 서버로 대화 기록·설정·키는 읽지 못해요.
 - **모델과 생각 깊이:** **리체 설정 › 모드 › 일상(또는 업무) › 대화**에서 각각 골라요. **에이전트 기본값**이면 에이전트가 정한 값을 써요. 에이전트마다 고를 수 있는 것이 달라요. 아래 [에이전트별 모델과 생각 깊이](#에이전트별-모델과-생각-깊이)를 봐요.
@@ -154,7 +154,7 @@ python -c "import pm; pm.sync_venv(['acp'], explicit=True)"
 
 ## 승인 요청
 
-에이전트가 파일을 고치거나 명령을 실행하는 등 도구를 쓰기 전에 물으면, 대화창에 **확인이 필요해요**와 **승인**, **거절** 단추가 나와요.
+에이전트가 파일을 고치거나 명령을 실행하는 등 도구를 쓰기 전에 물으면, 대화창에 **승인이 필요해요**와 **승인**, **거절** 단추가 나와요.
 
 - 리체는 에이전트가 요청과 함께 보낸 선택지 가운데 **이번 한 번만** 허락하거나 거절하는 것으로 답해요. "항상 허용"처럼 오래 남는 규칙은 고르지 않아요.
 - **■ 중지**를 누르거나 연결이 끊기면 남은 요청은 모두 취소돼요.

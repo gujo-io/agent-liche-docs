@@ -53,7 +53,7 @@ On Windows, Liche starts directly as a card without full-screen setup.
 2. The **연결 설정** window opens with connection cards and "리체랑 이야기할 길을 골라 줘." (Choose a way to talk with Liche.)
    - **Hermes:** Talk through the Hermes agent.
    - **리체 브릿지:** A separate program that holds Liche's memories and personality. It is not included in the retail package. Its card appears only if you installed Liche Bridge separately on this PC.
-3. Each card shows **설치됨** (Installed), **설치 안 됨**, **연결 중**, **연결됨**, or **확인 필요**. Click an **설치됨** card once to save it and connect immediately.
+3. Each card shows **설치됨** (Installed), **설치 안 됨**, **연결 중**, **연결됨**, or **해결 필요** (Needs a fix). Click an **설치됨** card once to save it and connect immediately.
 4. If you just installed an agent, click **다시 확인** (Check again) to search again.
 5. Once connected, the card shows **연결됨**. Click **닫기** (Close) to close the window. If the connection fails, the reason, the command, and **다시 연결** (Reconnect) appear under the card of the agent being connected ([When the connection fails](troubleshooting.md#when-the-connection-fails)).
 
@@ -71,14 +71,14 @@ If there is no chat history, Liche speaks first. Write in the input field at the
 - Hanja on macOS: while typing a Korean syllable, press `⌥Return` to open the Hanja candidate list under the input field. Press the number in front of a candidate to choose it.
 - You cannot send another message in the same mode while waiting for a reply. Your draft stays in the input field.
 - **■ 중지** (Stop): Stops the current reply. A stopped reply ends with "멈췄어요" (Stopped).
-- When the agent wants to edit files or run commands, **확인이 필요해요** (Your confirmation is needed) appears with **승인** (Approve) and **거절** (Reject) buttons. Paths and commands on the approval card are in a fixed-width font. Liche does not approve on her own. What each agent asks about is in [Connecting an agent](agents.md#approval-requests).
+- When the agent wants to edit files or run commands, **승인이 필요해요** (Approval needed) appears with **승인** (Approve) and **거절** (Reject) buttons. Paths and commands on the approval card are in a fixed-width font. Liche does not approve on her own. What each agent asks about is in [Connecting an agent](agents.md#approval-requests).
 - See [Reply waiting times](#reply-waiting-times) below for how long Liche waits.
 
 ### Reply waiting times
 
 | Situation | How long Liche waits | What the chat shows |
 | --- | --- | --- |
-| The agent is thinking or writing | **2 minutes (120 seconds)** since the last update | After two minutes without an update, Liche leaves "응답이 없어요" (No response) and stops waiting |
+| The agent is thinking or writing | **2 minutes (120 seconds)** since the last update | After two minutes without an update, Liche leaves "2분 넘게 답이 없어서 기다리기를 멈췄어요. 같은 메시지를 다시 보내 보세요." (No reply for over two minutes, so Liche stopped waiting. Try sending the same message again) and stops waiting |
 | The agent is using tools (reading/editing files, running commands, waiting for approval, and so on) | **No two-minute limit.** Stops only after **30 minutes** without an update | Shows time since sending, such as "작업 중이에요 · 3분 12초" (Working · 3 minutes 12 seconds). After 30 minutes without an update, shows "작업이 30분 넘게 아무 소식이 없어서 기다리기를 멈췄어요" (I stopped waiting because there has been no update on the task for over 30 minutes) |
 
 - Every tool progress update restarts the 30-minute timer. Liche keeps waiting for long builds or tests as long as updates continue.
@@ -99,7 +99,7 @@ If there is no chat history, Liche speaks first. Write in the input field at the
 | Detach or attach the chat window | Use the attach/detach button in the chat header, or choose under **리체 설정 › 창 › 대화창 배치** (Liche Settings › Window › Chat layout). The same area also has **대화창 스타일** (Chat window style): **떠 있는 창** (floating window) or a bordered classic window |
 | Open settings | Click **설정** (Settings), the gear among the unfolded icons, to open **리체 설정** (Liche Settings). The gear in the chat header goes directly to model and thinking-depth settings for the current mode |
 | Switch between Everyday and Work | Click the speech-bubble icon (Everyday) or the `</>` icon (Work) at the top of the chat window |
-| Find a lost card | Click **옮기기** (Move) under **리체 설정 › 창 › 카드를 화면 가운데로** (Liche Settings › Window › Center card on screen). See [Troubleshooting](troubleshooting.md) |
+| Find a lost card | Click **옮기기** (Move) under **리체 설정 › 창 › 리체를 화면 가운데로** (Liche Settings › Window › Center Liche on screen). See [Troubleshooting](troubleshooting.md) |
 
 ### Everyday and Work modes
 

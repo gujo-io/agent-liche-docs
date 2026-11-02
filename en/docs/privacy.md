@@ -78,7 +78,7 @@ When an agent requests permission to use a tool, Liche waits for **승인** (App
 
 | What to delete | How |
 | --- | --- |
-| Everyday and Work chat history, attachments, and Liche's memories | **리체 설정 › 일반 › 초기화…** (Liche Settings › General › Reset…). A confirmation appears first. This cannot be undone |
+| Everyday and Work chat history and attachments | Open the folder with **리체 설정 › 일반 › 기록 폴더 › 폴더 열기** (Liche Settings › General › History folder › Open folder), quit Liche, then delete `history-daily.jsonl`, `history-developer.jsonl` and the `attachments` folder inside `chat`. This cannot be undone. Delete what an agent remembers of the conversation in that agent |
 | JEV key | [Deleting a key](jev.md#deleting-a-key) |
 | All Liche data | Quit Liche and delete the data folders listed for [Windows](install-windows.md#6-uninstalling) or [macOS](install-mac.md#7-uninstalling) |
 | Data from an earlier version (Windows 0.1.0) | [Cleaning up old folders](updates.md#cleaning-up-old-folders) |

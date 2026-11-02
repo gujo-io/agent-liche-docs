@@ -92,7 +92,8 @@ The current status appears below this row.
 | **켜져 있어요** (Enabled) | Emotion judgment is working |
 | **꺼져 있어요** (Disabled) | A key is saved, but the feature is off |
 | **키를 넣으면 켤 수 있어요** (Enter a key to enable) | No key is saved yet, also after you remove the key. The switch shows off, and pressing it opens the key window |
-| **문제가 있어요** (There is a problem) | The key was rejected or the server could not be reached. Try saving the key again |
+| **감정 판단이 멈췄어요** (Emotion judgment stopped) or **감정 판단을 하지 못했어요** (Emotion judgment failed) | The key was rejected or the server could not be reached. Turn the switch off and on, and if it continues, enter the key again |
+| **이 설치에서는 감정 판단을 쓸 수 없어요** (Emotion judgment is not available in this installation) | The judgment program is missing from the installation. Reinstall Liche |
 | **이 연결에서는 쓸 수 없어요** (Unavailable with this connection) | Emotion judgment cannot be used with the current connection |
 | **준비 중** (Preparing) | The chat window program has not sent emotion judgment information yet |
 
@@ -108,4 +109,4 @@ If you already uninstalled Liche, follow [Deleting the keychain item](install-ma
 
 ## When a keychain dialog appears on macOS
 
-When you first save a key or run judgment, macOS may ask whether `liche-judge` can access the keychain item. Starting with 0.2.0, the app is Developer ID signed. Once allowed, it will not ask again in the next update. Click **허용** (Allow) or **항상 허용** (Always Allow). Judgment for that exchange waits for your answer. After eight seconds, Liche displays the reply with rule-based reactions. If you click **거부** (Deny), emotion judgment stays in the "문제가 있어요" (There is a problem) state until you save the key again.
+When you first save a key or run judgment, macOS may ask whether `liche-judge` can access the keychain item. Starting with 0.2.0, the app is Developer ID signed. Once allowed, it will not ask again in the next update. Click **허용** (Allow) or **항상 허용** (Always Allow). Judgment for that exchange waits for your answer. After eight seconds, Liche displays the reply with rule-based reactions. If you click **거부** (Deny), emotion judgment stays in an error state until you save the key again.

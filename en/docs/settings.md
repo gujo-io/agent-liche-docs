@@ -21,7 +21,7 @@ The card at the top of the sidebar shows the connected agent and status, such as
 | **연결 설정 열기** (Open connection settings) | Opens agent selection. On macOS, this is the connection step of first-run setup. On Windows, it opens **연결 설정** (Connection settings). If there is a connection problem, the reason appears in one line under the agent's name. What to do for each reason is in [When the connection fails](troubleshooting.md#when-the-connection-fails) |
 | **선택 기능 › 감정 판단 (JEV) · 선택** (Optional features › Emotion judgment (JEV) · Optional) | Uses the conversation to choose Liche's emotions and reaction strength. Enable or disable it with the switch on the right, and open the key window with **키 입력 ›** (Enter key ›). Without a key the switch shows off, and pressing it opens the key window. When enabled, part of your conversation goes to TypeSafe AI in the United States. You need your own JEV key and separate credits. Only input tokens are charged. **자세히 ›** (Details ›) opens [Emotion judgment (JEV)](jev.md) |
 
-If the chat window program is not running, the card shows **리체 대화 꺼짐** (Liche chat is off). See [Troubleshooting](troubleshooting.md).
+If the chat window program is not running, the card shows **대화창이 멈췄어요** (The chat window stopped) with "계속되면 리체를 다시 실행해 주세요." (If this continues, restart Liche). See [Troubleshooting](troubleshooting.md).
 
 ## Modes
 
@@ -57,7 +57,7 @@ Clothes and glasses change immediately when you are viewing that mode. See [Guid
 - Claude Code, Codex, OpenClaw, and Hermes all show the models and thinking depths that agent reports. A selection applies to that mode's conversation right away, and the thinking depths of the chosen model appear again at once. Selections remain after restarting Liche. What each agent offers is in [Models and thinking depth by agent](agents.md#models-and-thinking-depth-by-agent).
 - With no selection, the connected agent's defaults apply. If the agent no longer lists a selected model, Liche returns to the default.
 - The gear in the chat header takes you directly to these settings for the current mode.
-- If the agent reports neither models nor thinking depths, "이 연결은 모델을 고를 수 없어요" (You cannot choose a model with this connection) appears and selection is unavailable. If the chat window program is off, you see "리체 대화가 꺼져 있어 바꿀 수 없어요" (Liche chat is off, so this cannot be changed).
+- If the agent reports neither models nor thinking depths, "이 연결은 모델을 고를 수 없어요" (You cannot choose a model with this connection) appears and selection is unavailable. If the chat window program is off, you see "대화창이 멈춰 있어 바꿀 수 없어요" (The chat window stopped, so this cannot be changed).
 
 ## Notifications
 
@@ -67,7 +67,7 @@ Get desktop notifications about Liche while using other windows.
 | --- | --- | --- |
 |  | **알림 받기** (Receive notifications) | Enables or disables all notifications. When off, the options below are inactive |
 | **받을 알림** (Notifications to receive) | **답장** (Replies) | Notifies you when Liche replies |
-| **받을 알림** | **확인 요청** (Confirmation requests) | Notifies you when Liche asks permission to do something |
+| **받을 알림** | **승인 요청** (Approval requests) | Notifies you when Liche asks permission to do something |
 | **알림 모양** (Notification appearance) | **내용 미리보기** (Content preview) | Shows a short reply preview, up to 100 characters, in notifications |
 | **알림 모양** | **소리** (Sound) | Plays a sound for notifications |
 | **더 보기** (More) | **리체를 보고 있을 때도 알림** (Notify even while viewing Liche) | When off, notifications for the current conversation stay quiet while the chat window is in front. Other-mode notifications still arrive |
@@ -90,7 +90,7 @@ Text size is independent of card size. Enlarging the card does not enlarge the t
 | Group | Option | Description |
 | --- | --- | --- |
 | **창** (Window) | **항상 위** (Always on top) | Pins Liche above other windows. Same as the widget's pin |
-| **창** | **카드를 화면 가운데로** (Center card on screen) | If the card is off-screen or hard to reach behind a menu bar or taskbar, moves it at its current size to the center of the display containing the pointer. Use **옮기기** (Move) |
+| **창** | **리체를 화면 가운데로** (Center Liche on screen) | If the card is off-screen or hard to reach behind a menu bar or taskbar, moves it at its current size to the center of the display containing the pointer. Use **옮기기** (Move) |
 | **대화창** (Chat window) | **대화창 스타일** (Chat window style) | Choose **떠 있는 창** (Floating window: a floating chat window matching the glass card) or a bordered **클래식 창** (Classic window) |
 | **대화창** | **캐릭터 옆에 두기** (Beside the character) | In the floating window, attaches the chat on the left and character on the right, side by side. In the classic window, the selection is remembered but inactive |
 | **대화창** | **대화창 배치** (Chat layout) | **붙이기** (Attach) attaches chat to the glass panel beside the character. **떼기** (Detach) lets you move and resize chat separately. The classic window is always detached. Same as the chat-header button |
@@ -98,7 +98,7 @@ Text size is independent of card size. Enlarging the card does not enlarge the t
 | **작업 방해 줄이기** | **흐려졌을 때 남는 진하기** (Opacity while faded) | Sets how visible Liche remains while faded |
 | **작업 방해 줄이기** | **전체 화면 앱이나 게임을 쓸 땐 숨기기** (Hide during full-screen apps or games) | Hides Liche when another app uses her monitor full-screen, then shows her again afterward. On by default |
 
-Centering the card is also available from the macOS Dock icon menu and app menu (`⌥⌘L`), and the Windows window menu (`Alt+Space`, or hold Shift and right-click the taskbar button).
+**리체를 화면 가운데로** (Center Liche on screen) is also available from the macOS Dock icon menu and app menu (`⌥⌘L`), and the Windows window menu (`Alt+Space`, or hold Shift and right-click the taskbar button).
 
 ## Performance
 
@@ -139,7 +139,7 @@ At the bottom, **지금 리체가 쓰는 양** (Liche's current resource use) sh
 | --- | --- | --- |
 | **시작** (Startup) | **컴퓨터를 켜면 리체도 시작** (Start Liche when the computer starts) | Starts Liche and her connection when you sign in. Also registers a login item on macOS. If approval is needed, allow Agent Liche through **시스템 설정 열기 ›** (Open System Settings ›). See [macOS instructions](install-mac.md#5-starting-automatically-at-login) |
 | **기록** (History) | **기록 폴더** (History folder) | Opens the folder storing chat history and this window's settings, with **폴더 열기** |
-| **초기화** (Reset) | **초기화…** (Reset…) | Deletes both Everyday and Work chat histories, attachments, and Liche's memories. A confirmation appears first. Deleted history cannot be recovered |
+| **초기화** (Reset) | **초기화…** (Reset…) | Deletes the Everyday and Work chat histories and attachments, and Liche's affinity and mood. This cannot be undone. With an agent connection the button is off and "에이전트 연결에서는 쓸 수 없어요. 에이전트가 기억하는 대화는 리체가 지울 수 없어요." (Not available with an agent connection. Liche cannot delete what the agent remembers of the conversation) appears. To delete the chat history, see [Deleting data](privacy.md#deleting-data) |
 
 You cannot reset while either mode is waiting for a reply or has a pending approval request.
 

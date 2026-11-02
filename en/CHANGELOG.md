@@ -4,6 +4,18 @@
 
 This page lists changes in each version of Agent Liche. See [Updating](docs/updates.md) for how to switch to a new version.
 
+## Next release (Windows 0.2.0 · macOS 0.2.1)
+
+### On-screen wording
+
+- Tool-use approvals are called **승인** (Approve): **승인이 필요해요** (Approval needed) in the chat, **승인 요청** (Approval requests) in the notification settings, and "승인 요청: …" (Approval request: …) in the chat history.
+- **카드를 화면 가운데로** (Center card on screen) is now **리체를 화면 가운데로** (Center Liche on screen) in Liche Settings › Window, the macOS app and Dock menus, and the Windows window menu.
+- When the chat window program is not running, the connection card shows **대화창이 멈췄어요** (The chat window stopped) and what to do (it said "리체 대화 꺼짐" before).
+- **리체 설정 › 일반 › 초기화** (Liche Settings › General › Reset) names what it deletes (chat history and attachments, Liche's affinity and mood). With an agent connection it is off, with the reason, before you press it.
+- When a connection fails or a reply stops, Liche says what happened and what to do (sign in again, a usage limit, the internet connection, send the same message again). The two-minute note is "2분 넘게 답이 없어서 기다리기를 멈췄어요. 같은 메시지를 다시 보내 보세요." (No reply for over two minutes, so Liche stopped waiting. Try sending the same message again).
+- The install helper calls the Claude Code and Codex adapters **연결 도구** (connection tool) and Hermes's extra part **연결 기능** (connection feature).
+- The chat window's title is **리체와 대화** (Chat with Liche).
+
 ## 0.2.0
 
 ### Read this first

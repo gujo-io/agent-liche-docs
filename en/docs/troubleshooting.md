@@ -92,7 +92,7 @@ Paste the commands into Terminal on macOS or PowerShell on Windows.
 #### Every agent
 
 - **(에이전트)에 필요한 Node.js를 찾지 못했어요** / **(에이전트)에 필요한 Node.js가 오래됐어요** (Node.js needed by (agent) was not found / is too old)
-  The ACP adapters of OpenClaw, Claude Code, and Codex run on Node.js. Install or update it with the command shown (`brew install node`, `brew upgrade node`, or `winget install OpenJS.NodeJS` on Windows).
+  OpenClaw and the connection tools of Claude Code and Codex run on Node.js. Install or update it with the command shown (`brew install node`, `brew upgrade node`, or `winget install OpenJS.NodeJS` on Windows).
 - **(에이전트)가 리체와 맞지 않는 오래된 버전이에요** ((Agent) is an old version that does not work with Liche)
   Install the new version of the agent with the installation command shown.
 - **(에이전트)를 실행하지 못했어요** (Could not run (agent))
@@ -152,13 +152,13 @@ When nobody talks to her for a while, Liche dozes with Zz above her head, and la
 
 If Codex asks to run a command that needs more than its workspace allows and you choose **거절** (Reject), Codex stops that turn and ends without a reply. Tell it what to do differently. See [How Codex asks for approval](agents.md#how-codex-asks-for-approval).
 
-### It has been 30 seconds since saving the connection
+### Not connected 30 seconds after saving the connection
 
-If "연결을 저장한 지 30초가 지났어요" (It has been 30 seconds since the connection was saved) appears, the agent is likely waiting for login or initial setup. Run it once in a terminal, finish setup, then select it again.
+If "연결을 저장한 지 30초가 지나도 연결되지 않았어요" (Not connected 30 seconds after saving the connection) appears, the agent is likely waiting for login or initial setup. Run it once in a terminal, finish setup, then select it again.
 
-### The connection card says Liche chat is off
+### The connection card says the chat window stopped
 
-"리체 대화 꺼짐" (Liche chat is off) means the chat window program is not running. The character program relaunches it if it stops. If it still does not return, quit Liche completely and reopen her.
+"대화창이 멈췄어요" (The chat window stopped) means the chat window program is not running. The character program relaunches it if it stops. If it still does not return, quit Liche completely and reopen her.
 
 ### Liche cannot find an installed agent (macOS)
 
@@ -174,9 +174,9 @@ Liche searches PATH, `/opt/homebrew/bin`, `/usr/local/bin`, and `~/.local/bin`. 
 
 You cannot send another message while waiting for a reply in the same mode. Wait for the reply to finish or click **■ 중지** (Stop). Your draft stays in the input field. You can switch to the other mode and send there.
 
-### A reply stopped with no response
+### Liche stopped waiting after two minutes without a reply
 
-"응답이 없어요" (No response) means there was no update for over two minutes (120 seconds) while the agent was not using tools. It may still be thinking. Ask again after a short wait. If this happens often, check the agent's status.
+"2분 넘게 답이 없어서 기다리기를 멈췄어요" (No reply for over two minutes, so Liche stopped waiting) means there was no update for over two minutes (120 seconds) while the agent was not using tools. It may still be thinking. Send the same message again after a short wait. If this happens often, check the agent's status.
 
 There is no two-minute limit while the agent uses tools. Keep waiting while the chat shows a message such as "작업 중이에요 · 3분 12초" (Working · 3 minutes 12 seconds). See [Reply waiting times](first-run.md#reply-waiting-times).
 
@@ -204,9 +204,9 @@ The default guides tell Liche to suggest the other mode once for requests outsid
 
 ### The card is off-screen and I cannot reach it
 
-- Click **옮기기** (Move) under **리체 설정 › 창 › 카드를 화면 가운데로** (Liche Settings › Window › Center card on screen). The card moves at its current size to the center of the display containing the pointer.
-- macOS: Right-click the Agent Liche Dock icon and choose **카드를 화면 가운데로** (Center card on screen), or press `⌥⌘L` when Agent Liche is the active app.
-- Windows: Hold Shift and right-click Liche's taskbar button, or click Liche and press `Alt+Space`. Choose **카드를 화면 가운데로** from the window menu.
+- Click **옮기기** (Move) under **리체 설정 › 창 › 리체를 화면 가운데로** (Liche Settings › Window › Center Liche on screen). The card moves at its current size to the center of the display containing the pointer.
+- macOS: Right-click the Agent Liche Dock icon and choose **리체를 화면 가운데로** (Center Liche on screen), or press `⌥⌘L` when Agent Liche is the active app.
+- Windows: Hold Shift and right-click Liche's taskbar button, or click Liche and press `Alt+Space`. Choose **리체를 화면 가운데로** (Center Liche on screen) from the window menu.
 
 Liche checks that the glass card and icons are on-screen when you release a drag, when display arrangements change, and every second. If outside the screen, she moves them to the nearest valid position. If you disconnect a monitor, she moves to roughly the same position on the main display. Liche's head above the glass is left as it is, even if off-screen.
 
